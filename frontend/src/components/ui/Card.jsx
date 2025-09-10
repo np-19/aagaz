@@ -1,12 +1,12 @@
 import './Card.css';
 
-const Card = ({ 
-  children, 
-  variant = 'default', 
-  hover = false, 
-  onClick, 
+const Card = ({
+  children,
+  variant = 'default',
+  hover = false,
+  onClick,
   className = '',
-  ...props 
+  ...props
 }) => {
   return (
     <div

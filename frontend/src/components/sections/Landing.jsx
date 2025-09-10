@@ -1,9 +1,11 @@
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '@clerk/clerk-react';
 import { ArrowRight, Users, BookOpen, Target, Star, Play, TrendingDown, GraduationCap, Building } from 'lucide-react';
 import './Landing.css';
 
 const Landing = () => {
   const navigate = useNavigate();
+  const { isSignedIn } = useAuth();
 
   const jkData = [
     {
@@ -77,9 +79,22 @@ const Landing = () => {
             <a href="#contact">📞 Contact</a>
           </div>
           
-          <button className="get-started-btn" onClick={() => navigate('/quiz')}>
-            Get Started
-          </button>
+          <div className="nav-auth">
+            {isSignedIn ? (
+              <button className="get-started-btn" onClick={() => navigate('/dashboard')}>
+                Dashboard
+              </button>
+            ) : (
+              <>
+                <button className="sign-in-btn" onClick={() => navigate('/sign-in')}>
+                  Sign In
+                </button>
+                <button className="get-started-btn" onClick={() => navigate('/sign-up')}>
+                  Get Started
+                </button>
+              </>
+            )}
+          </div>
         </div>
       </nav>
 
@@ -101,17 +116,17 @@ const Landing = () => {
             <div className="hero-buttons">
               <button 
                 className="btn-primary"
-                onClick={() => navigate('/quiz')}
+                onClick={() => navigate(isSignedIn ? '/quiz' : '/sign-up')}
               >
-                Take Aptitude Quiz
+                {isSignedIn ? 'Take Aptitude Quiz' : 'Get Started Free'}
                 <ArrowRight size={18} />
               </button>
               <button 
                 className="btn-secondary"
-                onClick={() => navigate('/dashboard')}
+                onClick={() => navigate(isSignedIn ? '/dashboard' : '/sign-in')}
               >
                 <Play size={18} />
-                Watch Demo
+                {isSignedIn ? 'Go to Dashboard' : 'Sign In'}
               </button>
             </div>
 
@@ -158,7 +173,7 @@ const Landing = () => {
                   return (
                     <div key={index} className={`data-card ${item.type}`}>
                       <div className="card-icon">
-                        <IconComponent size={14} />
+                        <IconComponent size={18} />
                       </div>
                       <div className="card-content">
                         <h4>{item.title}</h4>

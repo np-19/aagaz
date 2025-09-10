@@ -91,6 +91,28 @@
   width: 100%;
 }
 
+.nav-auth {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sign-in-btn {
+  background: transparent;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sign-in-btn:hover {
+  background: #f9fafb;
+  border-color: #9ca3af;
+}
+
 .get-started-btn {
   background: linear-gradient(135deg, #0d7377, #0a5d61);
   color: white;

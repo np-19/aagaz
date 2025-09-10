@@ -31,19 +31,6 @@ body {
     color: #212121;
     line-height: 1.6;
     overflow-x: hidden;
-    margin: 0;
-    padding: 0;
-}
-
-#root {
-    width: 100%;
-    min-height: 100vh;
-}
-
-.main-content {
-    width: 100%;
-    min-height: 100vh;
-    background: var(--background);
 }
 
 :root {

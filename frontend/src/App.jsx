@@ -1,5 +1,4 @@
 import { Routes, Route } from 'react-router-dom';
-import "./App.css"
 import MainLayout from './components/layout/MainLayout';
 import Landing from './components/sections/Landing';
 import Features from './components/sections/Features';
@@ -12,18 +11,30 @@ import Timeline from './components/sections/Timeline';
 import Recommendations from './components/sections/Recommendations';
 import Resources from './components/sections/Resources';
 import Settings from './components/sections/Settings';
+import SignInPage from './components/auth/SignIn';
+import SignUpPage from './components/auth/SignUp';
+import ProtectedRoute from './components/auth/ProtectedRoute';
 import './styles/globals.css';
+import './App.css';
 
 function App() {
   return (
     <Routes>
-      {/* Standalone pages */}
+      {/* Public pages */}
       <Route path="/" element={<Landing />} />
       <Route path="/features" element={<Features />} />
       <Route path="/testimonials" element={<Testimonials />} />
+      
+      {/* Authentication pages */}
+      <Route path="/sign-in" element={<SignInPage />} />
+      <Route path="/sign-up" element={<SignUpPage />} />
 
-      {/* Pages with main layout (Navbar and Sidebar) */}
-      <Route element={<MainLayout />}>
+      {/* Protected pages with main layout (Navbar and Sidebar) */}
+      <Route element={
+        <ProtectedRoute>
+          <MainLayout />
+        </ProtectedRoute>
+      }>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/colleges" element={<Colleges />} />
