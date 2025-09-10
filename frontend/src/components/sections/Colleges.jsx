@@ -1,8 +1,9 @@
-import { useState } from 'react';
-import { Search, MapPin, Star } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Search, MapPin, Star, Filter, GraduationCap, Users, Award } from 'lucide-react';
 import Card from '../ui/Card';
 import Button from '../ui/Button';
 import Modal from '../ui/Modal';
+import { collegeAPI } from '../../utils/api';
 import './Colleges.css';
 
 const Colleges = () => {
@@ -10,149 +11,335 @@ const Colleges = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedCollege, setSelectedCollege] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [colleges, setColleges] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [filteredColleges, setFilteredColleges] = useState([]);
 
-  const colleges = [
-    {
-      id: 'mit',
-      name: 'MIT Delhi Campus',
-      location: 'New Delhi, Delhi',
-      rating: 4.8,
-      reviews: 2341,
-      type: 'Premium Institution',
-      features: ['Research', 'Technology', 'Innovation'],
-      category: 'engineering'
-    },
-    {
-      id: 'iit',
-      name: 'IIT Delhi',
-      location: 'Hauz Khas, Delhi',
-      rating: 4.9,
-      reviews: 3892,
-      type: 'Top Ranked',
-      features: ['Engineering', 'Research', 'Placement'],
-      category: 'engineering'
-    },
-    {
-      id: 'du',
-      name: 'Delhi University',
-      location: 'North Campus, Delhi',
-      rating: 4.2,
-      reviews: 5672,
-      type: 'Public University',
-      features: ['Liberal Arts', 'Commerce', 'Science'],
-      category: 'arts'
+  useEffect(() => {
+    loadColleges();
+  }, []);
+
+  useEffect(() => {
+    filterColleges();
+  }, [colleges, searchTerm, activeFilter]);
+
+  const loadColleges = async () => {
+    try {
+      setLoading(true);
+      const response = await collegeAPI.getAll();
+      setColleges(response.data.colleges || []);
+    } catch (error) {
+      console.error('Error loading colleges:', error);
+      // Fallback to mock data
+      setColleges([
+        {
+          name: 'IIT Jammu',
+          type: 'JK',
+          programs: ['Computer Science', 'Mechanical Engineering', 'Electrical Engineering'],
+          clusters: ['Engineering & Technology'],
+          programCount: 3
+        },
+        {
+          name: 'NIT Srinagar',
+          type: 'JK',
+          programs: ['Computer Science', 'Information Technology', 'Civil Engineering'],
+          clusters: ['Engineering & Technology'],
+          programCount: 3
+        },
+        {
+          name: 'University of Jammu',
+          type: 'JK',
+          programs: ['Computer Applications', 'Business Administration', 'Science'],
+          clusters: ['Engineering & Technology', 'Commerce & Management'],
+          programCount: 3
+        },
+        {
+          name: 'IIT Delhi',
+          type: 'National',
+          programs: ['Computer Science', 'Mechanical Engineering', 'Data Science'],
+          clusters: ['Engineering & Technology'],
+          programCount: 3
+        },
+        {
+          name: 'IIT Bombay',
+          type: 'National',
+          programs: ['Computer Science', 'AI/ML', 'Robotics'],
+          clusters: ['Engineering & Technology'],
+          programCount: 3
+        }
+      ]);
+    } finally {
+      setLoading(false);
     }
-  ];
+  };
 
-  const filters = [
-    { id: 'all', label: 'All' },
-    { id: 'engineering', label: 'Engineering' },
-    { id: 'business', label: 'Business' },
-    { id: 'arts', label: 'Arts & Sciences' },
-    { id: 'nearby', label: 'Nearby' }
-  ];
+  const filterColleges = () => {
+    let filtered = [...colleges];
+    
+    if (searchTerm) {
+      filtered = filtered.filter(college => 
+        college.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        college.programs.some(program => 
+          program.toLowerCase().includes(searchTerm.toLowerCase())
+        ) ||
+        college.clusters.some(cluster => 
+          cluster.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      );
+    }
+    
+    if (activeFilter !== 'all') {
+      if (activeFilter === 'jk') {
+        filtered = filtered.filter(college => college.type === 'JK');
+      } else if (activeFilter === 'national') {
+        filtered = filtered.filter(college => college.type === 'National');
+      } else {
+        filtered = filtered.filter(college => 
+          college.clusters.some(cluster => 
+            cluster.toLowerCase().includes(activeFilter.toLowerCase())
+          )
+        );
+      }
+    }
+    
+    setFilteredColleges(filtered);
+  };
 
-  const filteredColleges = colleges.filter(college => {
-    const matchesSearch = college.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         college.location.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesFilter = activeFilter === 'all' || college.category === activeFilter;
-    return matchesSearch && matchesFilter;
-  });
-
-  const handleCollegeClick = (college) => {
-    setSelectedCollege(college);
+  const handleCollegeClick = async (college) => {
+    try {
+      const response = await collegeAPI.getDetails(college.name);
+      setSelectedCollege(response.data);
+    } catch (error) {
+      console.error('Error loading college details:', error);
+      setSelectedCollege(college);
+    }
     setIsModalOpen(true);
   };
 
-  const renderStars = (rating) => {
-    return Array.from({ length: 5 }, (_, i) => (
-      <Star
-        key={i}
-        size={16}
-        fill={i < Math.floor(rating) ? '#14FFEC' : 'none'}
-        color="#14FFEC"
-      />
-    ));
+  const getCollegeIcon = (type) => {
+    switch (type) {
+      case 'JK':
+        return MapPin;
+      case 'National':
+        return Award;
+      default:
+        return GraduationCap;
+    }
   };
+
+  const getCollegeColor = (type) => {
+    switch (type) {
+      case 'JK':
+        return '#10B981';
+      case 'National':
+        return '#3B82F6';
+      default:
+        return '#6B7280';
+    }
+  };
+
+  const filters = [
+    { id: 'all', label: 'All Colleges', count: colleges.length },
+    { id: 'jk', label: 'J&K Colleges', count: colleges.filter(c => c.type === 'JK').length },
+    { id: 'national', label: 'National Colleges', count: colleges.filter(c => c.type === 'National').length },
+    { id: 'engineering', label: 'Engineering', count: colleges.filter(c => c.clusters.includes('Engineering & Technology')).length },
+    { id: 'commerce', label: 'Commerce', count: colleges.filter(c => c.clusters.includes('Commerce & Management')).length },
+    { id: 'healthcare', label: 'Healthcare', count: colleges.filter(c => c.clusters.includes('Healthcare & Medicine')).length }
+  ];
+
+  if (loading) {
+    return (
+      <div className="colleges-section">
+        <div className="section-header">
+          <h1 className="section-title">Loading Colleges...</h1>
+          <p className="section-subtitle">Please wait while we load college information</p>
+        </div>
+        <div className="loading-spinner">
+          <div className="spinner"></div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="colleges-section">
       <div className="section-header">
-        <h1 className="section-title">College Directory</h1>
-        <p className="section-subtitle">Find the perfect institution for your educational journey</p>
+        <h1 className="section-title">Explore Colleges</h1>
+        <p className="section-subtitle">Discover colleges and universities across Jammu & Kashmir and India</p>
       </div>
 
-      <div className="search-container">
-        <div className="search-input-wrapper">
-          <Search size={20} className="search-icon" />
+      {/* Search and Filter Controls */}
+      <div className="search-controls">
+        <div className="search-box">
+          <Search size={20} />
           <input
             type="text"
-            className="search-input"
-            placeholder="Search colleges by name, location, or program..."
+            placeholder="Search colleges, programs, or fields..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
+            className="search-input"
           />
         </div>
       </div>
 
-      <div className="filter-chips">
-        {filters.map(filter => (
-          <div
+      {/* Filter Tabs */}
+      <div className="filter-tabs">
+        {filters.map((filter) => (
+          <button
             key={filter.id}
-            className={`filter-chip ${activeFilter === filter.id ? 'active' : ''}`}
+            className={`filter-tab ${activeFilter === filter.id ? 'active' : ''}`}
             onClick={() => setActiveFilter(filter.id)}
           >
             {filter.label}
-          </div>
+            <span className="filter-count">({filter.count})</span>
+          </button>
         ))}
       </div>
 
-      <div className="college-grid">
-        {filteredColleges.map(college => (
-          <Card key={college.id} variant="college" hover onClick={() => handleCollegeClick(college)}>
-            <div className="college-image">
-              <div className="college-badge">{college.type}</div>
-            </div>
-            <div className="college-info">
-              <h3 className="college-name">{college.name}</h3>
-              <p className="college-location">
-                <MapPin size={16} />
-                {college.location}
-              </p>
-              <div className="college-rating">
-                <div className="stars">
-                  {renderStars(college.rating)}
+      {/* Colleges Grid */}
+      <div className="colleges-grid">
+        {filteredColleges.map((college, index) => {
+          const IconComponent = getCollegeIcon(college.type);
+          const color = getCollegeColor(college.type);
+          
+          return (
+            <Card 
+              key={index} 
+              className="college-card" 
+              hover
+              onClick={() => handleCollegeClick(college)}
+            >
+              <div className="college-header">
+                <div className="college-icon" style={{ backgroundColor: color }}>
+                  <IconComponent size={24} />
                 </div>
-                <span>{college.rating} ({college.reviews.toLocaleString()} reviews)</span>
+                <div className="college-title-section">
+                  <h3>{college.name}</h3>
+                  <div className="college-meta">
+                    <span className={`college-type ${college.type.toLowerCase()}`}>
+                      {college.type === 'JK' ? 'J&K College' : 'National College'}
+                    </span>
+                    <span className="program-count">
+                      {college.programCount} programs
+                    </span>
+                  </div>
+                </div>
               </div>
-              <div className="college-features">
-                {college.features.map(feature => (
-                  <span key={feature} className="feature-tag">{feature}</span>
-                ))}
+              
+              <div className="college-details">
+                <div className="college-clusters">
+                  <strong>Fields:</strong>
+                  <div className="cluster-tags">
+                    {college.clusters.map((cluster, idx) => (
+                      <span key={idx} className="cluster-tag">{cluster}</span>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="college-programs">
+                  <strong>Programs:</strong>
+                  <div className="programs-list">
+                    {college.programs.slice(0, 3).map((program, idx) => (
+                      <span key={idx} className="program-tag">{program}</span>
+                    ))}
+                    {college.programs.length > 3 && (
+                      <span className="program-tag more">+{college.programs.length - 3} more</span>
+                    )}
+                  </div>
+                </div>
               </div>
-              <Button onClick={(e) => { e.stopPropagation(); handleCollegeClick(college); }}>
-                View Details
-              </Button>
-            </div>
-          </Card>
-        ))}
+              
+              <div className="college-actions">
+                <Button size="small" variant="secondary">
+                  View Details
+                </Button>
+              </div>
+            </Card>
+          );
+        })}
       </div>
 
+      {filteredColleges.length === 0 && !loading && (
+        <div className="no-results">
+          <GraduationCap size={48} />
+          <h3>No colleges found</h3>
+          <p>Try adjusting your search or filter criteria</p>
+        </div>
+      )}
+
+      {/* College Details Modal */}
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        title={selectedCollege?.name || ''}
+        title={selectedCollege?.name || 'College Details'}
       >
         {selectedCollege && (
-          <div className="college-modal-content">
-            <div className="college-modal-header">
-              <p><MapPin size={16} /> {selectedCollege.location} | 🏆 {selectedCollege.type}</p>
-              <div className="college-modal-rating">
-                <h4>NIRF Ranking: #2</h4>
-                <p>Average Package: ₹17.5 LPA</p>
+          <div className="college-details-modal">
+            <div className="college-overview">
+              <h2>{selectedCollege.name}</h2>
+              <div className="college-meta">
+                <span className={`college-type ${selectedCollege.type?.toLowerCase()}`}>
+                  {selectedCollege.type === 'JK' ? 'J&K College' : 'National College'}
+                </span>
+                <span className="program-count">
+                  {selectedCollege.programCount} programs available
+                </span>
               </div>
             </div>
-            <Button>View Cutoffs</Button>
+
+            <div className="college-sections">
+              {selectedCollege.clusters && (
+                <div className="college-section">
+                  <h3>Academic Fields</h3>
+                  <div className="clusters-list">
+                    {selectedCollege.clusters.map((cluster, index) => (
+                      <span key={index} className="cluster-item">{cluster}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {selectedCollege.programs && (
+                <div className="college-section">
+                  <h3>Available Programs</h3>
+                  <ul>
+                    {selectedCollege.programs.map((program, index) => (
+                      <li key={index}>{program}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {selectedCollege.detailedPrograms && (
+                <div className="college-section">
+                  <h3>Program Details</h3>
+                  <div className="programs-grid">
+                    {selectedCollege.detailedPrograms.map((program, index) => (
+                      <div key={index} className="program-card">
+                        <h4>{program.title}</h4>
+                        <p><strong>Field:</strong> {program.cluster} - {program.group}</p>
+                        {program.skills_required && (
+                          <div>
+                            <strong>Skills Required:</strong>
+                            <ul>
+                              {program.skills_required.slice(0, 3).map((skill, idx) => (
+                                <li key={idx}>{skill}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                        {program.education_path && (
+                          <div>
+                            <strong>Education Path:</strong>
+                            <p>{program.education_path[0]}</p>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         )}
       </Modal>

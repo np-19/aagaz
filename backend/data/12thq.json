@@ -1,0 +1,173 @@
+{
+  "title": "Career Path Selection Questionnaire (12th Grade)",
+  "description": "You're at a crucial stage. These questions will help narrow down your career options based on your stream, interests, and skills.",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "What is your academic stream in 12th grade?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "PCM (Physics, Chemistry, Maths)", "maps_to_clusters": ["Engineering & Technology"]},
+        {"value": "PCB (Physics, Chemistry, Biology)", "maps_to_clusters": ["Healthcare & Medicine", "Agriculture & Allied Activities"]},
+        {"value": "Commerce", "maps_to_clusters": ["Commerce & Management", "Legal Services"]},
+        {"value": "Arts/Humanities", "maps_to_clusters": ["Creative Arts & Media", "Public Administration", "Legal Services"]}
+      ]
+    },
+    {
+      "id": "q2",
+      "text": "Which competitive exams are you preparing for or considering?",
+      "type": "multiple-choice-multi",
+      "options": [
+        {"value": "JEE (Main/Advanced) for Engineering", "maps_to_exams_required": ["JEE Main (Paper 2) for admissions"]},
+        {"value": "NEET for Medical/Dental/Veterinary", "maps_to_exams_required": ["NEET-UG"]},
+        {"value": "CLAT/AILET for Law", "maps_to_exams_required": ["CLAT (for admissions)"]},
+        {"value": "NDA/NA for Defence Services", "maps_to_exams_required": ["NDA Exam"]},
+        {"value": "NATA/UCEED for Architecture/Design", "maps_to_exams_required": ["NATA", "UCEED"]},
+        {"value": "Exams for Commerce/Business (e.g., for BBA/BMS)", "maps_to_clusters": ["Commerce & Management"]},
+        {"value": "Considering Civil Services (UPSC/JKAS) for later", "maps_to_exams_required": ["UPSC Civil Services Exam (CSE)", "JKPSC Combined Competitive Exam (CCE)"]},
+        {"value": "None of the above", "maps_to_exams_required": []}
+      ]
+    },
+    {
+      "id": "q3",
+      "text": "What type of problem-solving do you prefer?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Solving complex, abstract problems with logic and math", "maps_to_skills": ["Algorithm optimization", "Statistical Analysis"]},
+        {"value": "Designing and building tangible things (structures, machines)", "maps_to_skills": ["CAD/CAM", "Structural Analysis"]},
+        {"value": "Diagnosing and treating issues in living beings (people, animals)", "maps_to_skills": ["Medical diagnosis", "Patient care"]},
+        {"value": "Understanding and solving business or financial challenges", "maps_to_skills": ["Financial Modeling", "Market Research"]},
+        {"value": "Addressing social or legal issues", "maps_to_skills": ["Public Policy", "Legal Research"]}
+      ]
+    },
+    {
+      "id": "q4",
+      "text": "How important is a high starting salary to you?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "It's a top priority", "maps_to_values": ["Financial expertise"]},
+        {"value": "It's important, but not the only factor", "maps_to_values": []},
+        {"value": "I prioritize job satisfaction and passion over salary", "maps_to_values": ["Public service", "Creativity"]}
+      ]
+    },
+    {
+      "id": "q5",
+      "text": "Which work environment would you thrive in?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "A high-tech lab or a corporate IT office", "maps_to_clusters": ["Engineering & Technology"]},
+        {"value": "A hospital, working directly with patients", "maps_to_clusters": ["Healthcare & Medicine"]},
+        {"value": "A courtroom or a government office", "maps_to_clusters": ["Legal Services", "Public Administration"]},
+        {"value": "A creative studio or a media house", "maps_to_clusters": ["Creative Arts & Media"]},
+        {"value": "Out in the field, on construction or agricultural sites", "maps_to_clusters": ["Engineering & Technology", "Agriculture & Allied Activities"]}
+      ]
+    },
+    {
+      "id": "q6",
+      "text": "Are you more interested in...",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Research and development (creating new things)", "maps_to_values": ["Innovation", "Research"]},
+        {"value": "Application and maintenance (making existing things work better)", "maps_to_values": ["Efficiency", "System reliability"]},
+        {"value": "Management and administration (organizing people and resources)", "maps_to_skills": ["Project Management", "Leadership"]},
+        {"value": "Direct service and interaction with people", "maps_to_skills": ["Customer Service", "Patient communication"]}
+      ]
+    },
+    {
+      "id": "q7",
+      "text": "What is your preferred way of learning?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Through theoretical study and books", "maps_to_skills": ["Legal Research", "Public Policy"]},
+        {"value": "Through hands-on experiments and projects", "maps_to_skills": ["Technical skill", "Hands-on problem solving"]},
+        {"value": "Through case studies and real-world examples", "maps_to_skills": ["Business Operations", "Financial Modeling"]},
+        {"value": "Through creative expression and practice", "maps_to_skills": ["Aesthetics", "Creativity"]}
+      ]
+    },
+    {
+      "id": "q8",
+      "text": "Would you prefer to work in a government job or the private sector?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Government (seeking stability and public service)", "maps_to_govt_jobs": true},
+        {"value": "Private (seeking growth and innovation)", "maps_to_local_opportunities": true},
+        {"value": "Either is fine, depending on the role", "maps_to_values": []}
+      ]
+    },
+    {
+      "id": "q9",
+      "text": "How much further education are you willing to pursue after your Bachelor's degree?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "I want to start working immediately", "maps_to_education_path": ["B.Tech", "B.Com"]},
+        {"value": "I am open to a 2-year Master's degree (e.g., M.Tech, MBA, MD)", "maps_to_education_path": ["Master's", "M.Tech", "MBA"]},
+        {"value": "I am interested in a long-term specialization (e.g., PhD, DM)", "maps_to_education_path": ["PhD", "DM"]}
+      ]
+    },
+    {
+      "id": "q10",
+      "text": "Which of these professional activities sounds most appealing?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Developing innovative technology or software.", "maps_to_clusters": ["Engineering & Technology"]},
+        {"value": "Providing critical healthcare services.", "maps_to_clusters": ["Healthcare & Medicine"]},
+        {"value": "Managing business operations or financial assets.", "maps_to_clusters": ["Commerce & Management"]},
+        {"value": "Working in public service or the legal system.", "maps_to_clusters": ["Public Administration", "Legal Services"]},
+        {"value": "Creating art, media, or engaging with tourists.", "maps_to_clusters": ["Creative Arts & Media", "Tourism & Hospitality"]}
+      ]
+    },
+    {
+      "id": "q11",
+      "text": "Do you enjoy detailed, precise work?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Yes, I am very detail-oriented", "maps_to_values": ["Accuracy", "Precision", "Technical proficiency"]},
+        {"value": "I prefer looking at the bigger picture", "maps_to_values": ["Strategic thinking", "Leadership"]},
+        {"value": "I can do it, but it's not my preference", "maps_to_values": []}
+      ]
+    },
+    {
+      "id": "q12",
+      "text": "How comfortable are you with public speaking and presentation?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Very comfortable, I enjoy it", "maps_to_skills": ["Communication", "Argumentation"]},
+        {"value": "I can do it if required", "maps_to_skills": []},
+        {"value": "I prefer to avoid it", "maps_to_skills": []}
+      ]
+    },
+    {
+      "id": "q13",
+      "text": "Are you interested in a career that involves travel?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Yes, extensively", "maps_to_clusters": ["Tourism & Hospitality"]},
+        {"value": "Occasionally is fine", "maps_to_values": []},
+        {"value": "No, I prefer to be based in one place", "maps_to_values": ["Stability"]}
+      ]
+    },
+    {
+      "id": "q14",
+      "text": "Which skill would you most like to develop?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Technical skills (like coding, operating machinery)", "maps_to_clusters": ["Engineering & Technology", "Skilled Trades"]},
+        {"value": "Analytical skills (like data analysis, financial modeling)", "maps_to_clusters": ["Commerce & Management"]},
+        {"value": "Creative skills (like design, writing)", "maps_to_clusters": ["Creative Arts & Media"]},
+        {"value": "Interpersonal skills (like patient care, counseling)", "maps_to_clusters": ["Healthcare & Medicine"]}
+      ]
+    },
+    {
+      "id": "q15",
+      "text": "What is more important to you in a career?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Making a direct impact on people's lives", "maps_to_values": ["Public service", "Empathy"]},
+        {"value": "Building and creating innovative products or systems", "maps_to_values": ["Innovation", "Nation building"]},
+        {"value": "Achieving financial success and stability", "maps_to_values": ["Financial expertise", "Stability"]},
+        {"value": "Expressing creativity and ideas", "maps_to_values": ["Creativity", "Aesthetics"]}
+      ]
+    }
+  ]
+}
+

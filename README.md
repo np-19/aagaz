@@ -1,150 +1,218 @@
-# Aagaz - Career Guidance Platform (Frontend)
+# Aagaz - Career Guidance Platform
 
-A modern React application for career guidance and educational recommendations, built with Vite and integrated with Clerk authentication.
+A comprehensive career guidance platform designed specifically for students in Jammu & Kashmir, featuring AI-powered career assessments, personalized recommendations, and college information.
 
-## Features
+## 🚀 Features
 
+### Frontend (React + Vite)
+- **Modern UI/UX**: Beautiful, responsive design with smooth animations
 - **Authentication**: Secure user authentication with Clerk
-- **Beautiful UI**: Modern split-screen authentication pages with professional design
-- **Career Guidance**: Comprehensive career exploration and recommendations
-- **College Search**: Extensive college database with filtering options
-- **Interactive Quizzes**: Career aptitude and personality assessments
-- **Personalized Dashboard**: User-specific recommendations and progress tracking
-- **Responsive Design**: Mobile-first approach with beautiful animations
+- **Interactive Quiz**: Dynamic career assessment for different education levels
+- **Career Explorer**: Comprehensive database of career paths and opportunities
+- **College Database**: Detailed information about colleges in J&K and across India
+- **Personalized Recommendations**: AI-powered career suggestions based on user profile
+- **Dashboard**: User-friendly dashboard with progress tracking
 
-## Tech Stack
+### Backend (Node.js + Express)
+- **RESTful API**: Clean, well-documented API endpoints
+- **Quiz System**: Dynamic quiz generation for 10th, 12th, and undergraduate levels
+- **Career Matching Algorithm**: Sophisticated algorithm for career recommendations
+- **College Database**: Comprehensive college information system
+- **User Management**: Quiz history and preference tracking
 
-- **React 19** - Modern React with latest features
-- **Vite** - Fast build tool and development server
-- **React Router DOM** - Client-side routing
-- **Clerk** - Authentication and user management
-- **Lucide React** - Beautiful icon library
-- **CSS3** - Custom styling with modern CSS features
+## 🏗️ Project Structure
 
-## Installation
+```
+aagaz/
+├── frontend/                 # React frontend application
+│   ├── src/
+│   │   ├── components/      # React components
+│   │   │   ├── auth/        # Authentication components
+│   │   │   ├── layout/      # Layout components (Navbar, Sidebar)
+│   │   │   ├── sections/    # Main page components
+│   │   │   └── ui/          # Reusable UI components
+│   │   ├── utils/           # Utility functions and API calls
+│   │   └── styles/          # Global styles
+│   └── package.json
+├── backend/                 # Node.js backend API
+│   ├── src/
+│   │   ├── controllers/     # API controllers
+│   │   ├── routes/          # API routes
+│   │   └── server.js        # Main server file
+│   ├── data/                # JSON data files
+│   └── package.json
+└── data/                    # Shared data files
+    ├── 10thq.json          # 10th grade quiz questions
+    ├── 12thq.json          # 12th grade quiz questions
+    ├── ugq.json            # Undergraduate quiz questions
+    └── taxonomy.json       # Career taxonomy database
+```
 
-1. Clone the repository:
+## 🚀 Quick Start
+
+### Prerequisites
+- Node.js (v16 or higher)
+- npm or yarn
+- Git
+
+### 1. Clone the Repository
 ```bash
 git clone <repository-url>
-cd aagaz/frontend
+cd aagaz
 ```
 
-2. Install dependencies:
+### 2. Start the Backend
 ```bash
+cd backend
 npm install
-```
-
-3. Set up environment variables:
-```bash
-# Create .env file and add your Clerk keys
-VITE_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key_here
-```
-
-4. Start the development server:
-```bash
 npm run dev
 ```
+The backend will start on `http://localhost:5000`
 
-## Authentication Setup
-
-This project uses Clerk for authentication. To set up:
-
-1. Create a Clerk account at [clerk.com](https://clerk.com)
-2. Create a new application
-3. Copy your publishable key to the `.env` file
-4. Configure your sign-in/sign-up preferences in the Clerk dashboard
-
-## Project Structure
-
+### 3. Start the Frontend
+```bash
+cd frontend
+npm install
+npm run dev
 ```
-src/
-├── components/
-│   ├── auth/           # Authentication components
-│   ├── layout/         # Layout components (Navbar, Sidebar)
-│   └── sections/       # Page components
-├── styles/             # Global styles
-└── App.jsx            # Main application component
+The frontend will start on `http://localhost:5173`
+
+### 4. Access the Application
+Open your browser and navigate to `http://localhost:5173`
+
+## 📚 API Documentation
+
+### Quiz Endpoints
+- `GET /api/quiz/:grade` - Get quiz questions
+- `POST /api/quiz/submit` - Submit quiz answers
+
+### Career Endpoints
+- `GET /api/careers/clusters` - Get career clusters
+- `GET /api/careers/search` - Search careers
+- `GET /api/careers/:careerCode` - Get career details
+
+### College Endpoints
+- `GET /api/colleges` - Get all colleges
+- `GET /api/colleges/search` - Search colleges
+- `GET /api/colleges/:collegeName` - Get college details
+
+### Recommendation Endpoints
+- `POST /api/recommendations/personalized` - Get personalized recommendations
+- `GET /api/recommendations/trending` - Get trending careers
+
+## 🎯 Key Features Explained
+
+### 1. Dynamic Quiz System
+- **Multi-level Assessment**: Different quizzes for 10th, 12th, and undergraduate students
+- **Smart Questioning**: Questions adapt based on previous answers
+- **Comprehensive Coverage**: Covers interests, skills, values, and career goals
+
+### 2. Career Matching Algorithm
+- **Multi-factor Analysis**: Considers interests, skills, values, and education level
+- **J&K Focus**: Prioritizes local opportunities and colleges
+- **Scoring System**: Weighted scoring for accurate recommendations
+
+### 3. College Database
+- **J&K Colleges**: Comprehensive list of colleges in Jammu & Kashmir
+- **National Colleges**: Top colleges across India
+- **Program Information**: Detailed program and admission requirements
+
+### 4. Personalized Recommendations
+- **AI-Powered**: Uses advanced algorithms for career matching
+- **Insights**: Provides detailed insights and suggestions
+- **Progress Tracking**: Tracks user progress and preferences
+
+## 🛠️ Technology Stack
+
+### Frontend
+- **React 19** - Modern React with latest features
+- **Vite** - Fast build tool and development server
+- **React Router** - Client-side routing
+- **Clerk** - Authentication and user management
+- **Lucide React** - Beautiful icons
+- **CSS3** - Modern styling with animations
+
+### Backend
+- **Node.js** - JavaScript runtime
+- **Express.js** - Web application framework
+- **CORS** - Cross-origin resource sharing
+- **dotenv** - Environment variable management
+
+## 📊 Data Structure
+
+### Quiz Data
+- **10th Grade**: Basic career exploration questions
+- **12th Grade**: Stream-specific career guidance
+- **Undergraduate**: Specialization and advanced career planning
+
+### Career Taxonomy
+- **Clusters**: Major career categories (Engineering, Healthcare, etc.)
+- **Groups**: Subcategories within each cluster
+- **Occupations**: Specific job roles with detailed information
+- **Skills**: Required skills and competencies
+- **Education Paths**: Academic requirements and progression
+- **Colleges**: Associated educational institutions
+
+## 🎨 UI/UX Features
+
+- **Responsive Design**: Works on all devices
+- **Dark/Light Theme**: User preference support
+- **Smooth Animations**: Engaging user experience
+- **Accessibility**: WCAG compliant design
+- **Modern Typography**: Clean, readable fonts
+- **Interactive Elements**: Hover effects and transitions
+
+## 🔧 Development
+
+### Frontend Development
+```bash
+cd frontend
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run preview      # Preview production build
+npm run lint         # Run ESLint
 ```
 
-## Key Components
+### Backend Development
+```bash
+cd backend
+npm run dev          # Start with nodemon
+npm start            # Start production server
+```
 
-### Authentication Pages
-- **SignIn**: Beautiful split-screen sign-in page
-- **SignUp**: Professional sign-up interface
-- **ProtectedRoute**: HOC for route protection
+## 📈 Future Enhancements
 
-### Layout Components
-- **MainLayout**: Main application layout with navbar and sidebar
-- **Navbar**: Navigation with user authentication status
-- **Landing**: Marketing landing page
+- [ ] User accounts and profile management
+- [ ] Advanced analytics and reporting
+- [ ] Integration with job portals
+- [ ] Mobile app development
+- [ ] Multi-language support
+- [ ] Advanced AI recommendations
+- [ ] Social features and community
+- [ ] Integration with educational institutions
 
-## Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
-
-## Features Implemented
-
-### Authentication Flow
-- Sign up with email/password
-- Sign in with email/password
-- User profile management
-- Sign out functionality
-- Route protection
-- Redirect after authentication
-
-### UI/UX
-- Loading states during authentication
-- Responsive design
-- Consistent styling with app theme
-- User avatar in navigation
-- Dynamic navigation based on auth status
-- Beautiful split-screen authentication pages
-
-### Security Features
-- Environment variable protection for API keys
-- Client-side route protection
-- Automatic token management
-- Secure sign-out with redirect
-
-## API Integration
-
-The frontend is designed to work with the Aagaz backend API for:
-- User profile management
-- Career recommendations
-- College data
-- Quiz functionality
-- Dashboard analytics
-
-## Deployment
-
-The application can be deployed to various platforms:
-- Vercel (recommended for Vite apps)
-- Netlify
-- GitHub Pages
-- Any static hosting service
-
-## Contributing
+## 🤝 Contributing
 
 1. Fork the repository
 2. Create a feature branch
 3. Make your changes
-4. Test thoroughly
+4. Add tests if applicable
 5. Submit a pull request
 
-## License
+## 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Support
+## 🙏 Acknowledgments
 
-For support and questions:
-- Check the documentation
-- Open an issue on GitHub
-- Contact the development team
+- Data sources and career information
+- Open source libraries and frameworks
+- Community contributors and testers
 
-## Expanding the ESLint configuration
+## 📞 Support
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+For support and questions, please contact the development team or create an issue in the repository.
+
+---
+
+**Aagaz** - Empowering students to make informed career decisions and build successful futures! 🚀

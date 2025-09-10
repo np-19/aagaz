@@ -1,5 +1,5 @@
 .quiz-section {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -10,17 +10,28 @@
 
 .quiz-progress {
     background: rgba(13, 115, 119, 0.1);
-    height: 8px;
-    border-radius: 4px;
+    height: 12px;
+    border-radius: 6px;
     margin-bottom: 2rem;
     overflow: hidden;
+    position: relative;
 }
 
 .quiz-progress-fill {
     height: 100%;
     background: linear-gradient(90deg, #0D7377, #14FFEC);
-    border-radius: 4px;
+    border-radius: 6px;
     transition: width 0.5s ease;
+}
+
+.progress-text {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #0D7377;
 }
 
 .quiz-card {
@@ -34,17 +45,18 @@
     font-weight: 600;
     margin-bottom: 2rem;
     color: #212121;
+    line-height: 1.4;
 }
 
 .quiz-options {
     display: grid;
     gap: 1rem;
-    max-width: 500px;
+    max-width: 600px;
     margin: 0 auto;
 }
 
 .quiz-option {
-    padding: 1rem 1.5rem;
+    padding: 1.2rem 1.5rem;
     border: 2px solid rgba(13, 115, 119, 0.2);
     border-radius: 12px;
     background: #FFFFFF;
@@ -52,26 +64,213 @@
     transition: all 0.3s ease;
     font-weight: 500;
     color: #212121;
+    text-align: left;
+    position: relative;
 }
 
 .quiz-option:hover {
     border-color: #14FFEC;
     background: rgba(20, 255, 236, 0.05);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(20, 255, 236, 0.2);
 }
 
 .quiz-option.selected {
     border-color: #0D7377;
     background: rgba(13, 115, 119, 0.1);
     color: #0D7377;
+    box-shadow: 0 4px 12px rgba(13, 115, 119, 0.2);
 }
 
+.quiz-option.selected::before {
+    content: "✓";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    color: #0D7377;
+}
+
+.quiz-actions {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.grade-selector {
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.grade-selector label {
+    font-weight: 600;
+    color: #212121;
+}
+
+.grade-select {
+    padding: 0.5rem 1rem;
+    border: 2px solid rgba(13, 115, 119, 0.2);
+    border-radius: 8px;
+    background: #FFFFFF;
+    color: #212121;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.grade-select:hover {
+    border-color: #14FFEC;
+}
+
+.grade-select:focus {
+    outline: none;
+    border-color: #0D7377;
+    box-shadow: 0 0 0 3px rgba(13, 115, 119, 0.1);
+}
+
+/* Results Styles */
 .results-container {
     text-align: center;
-    max-width: 600px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
+.results-summary {
+    background: linear-gradient(135deg, #0D7377, #14FFEC);
+    color: white;
+    padding: 2rem;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+}
+
+.results-summary h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+}
+
+.results-summary p {
+    margin: 0;
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.recommendations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.career-card {
+    text-align: left;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.career-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(13, 115, 119, 0.15);
+}
+
+.career-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(13, 115, 119, 0.1);
+}
+
+.career-header h3 {
+    margin: 0;
+    color: #0D7377;
+    font-size: 1.2rem;
+}
+
+.match-score {
+    background: linear-gradient(135deg, #0D7377, #14FFEC);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.career-details {
+    color: #323232;
+    line-height: 1.6;
+}
+
+.career-details p {
+    margin: 0.5rem 0;
+}
+
+.career-details ul {
+    margin: 0.5rem 0;
+    padding-left: 1.2rem;
+}
+
+.career-details li {
+    margin: 0.2rem 0;
+}
+
+.insights-section {
+    background: rgba(13, 115, 119, 0.05);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+    text-align: left;
+}
+
+.insights-section h3 {
+    color: #0D7377;
+    margin-bottom: 1rem;
+}
+
+.insight-item {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+    border-left: 4px solid #14FFEC;
+}
+
+.results-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Loading Styles */
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(13, 115, 119, 0.1);
+    border-left: 4px solid #0D7377;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Results Chart Styles */
 .results-chart {
     width: 300px;
     height: 300px;
@@ -123,14 +322,52 @@
     font-size: 1.1rem;
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
     .quiz-card {
         padding: 1.5rem;
     }
+    
     .quiz-question {
         font-size: 1.2rem;
     }
+    
     .section-title {
         font-size: 1.6rem;
+    }
+    
+    .recommendations-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .career-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .results-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .grade-selector {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .quiz-option {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .results-summary {
+        padding: 1.5rem;
+    }
+    
+    .career-card {
+        padding: 1rem;
     }
 }
