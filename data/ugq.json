@@ -1,0 +1,173 @@
+{
+  "title": "Career Specialization Questionnaire (Undergraduate)",
+  "description": "You've already chosen a broad field. These questions will help you find the right specialization and career path within your domain.",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "What is your current field of study?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Engineering/Technology", "maps_to_clusters": ["Engineering & Technology"]},
+        {"value": "Medicine/Healthcare", "maps_to_clusters": ["Healthcare & Medicine"]},
+        {"value": "Science (B.Sc. in Physics, Chemistry, Biology, etc.)", "maps_to_clusters": ["Engineering & Technology", "Healthcare & Medicine", "Agriculture & Allied Activities", "Education & Training"]},
+        {"value": "Commerce/Business", "maps_to_clusters": ["Commerce & Management"]},
+        {"value": "Arts/Humanities", "maps_to_clusters": ["Creative Arts & Media", "Public Administration"]},
+        {"value": "Law", "maps_to_clusters": ["Legal Services"]},
+        {"value": "Agriculture", "maps_to_clusters": ["Agriculture & Allied Activities"]}
+      ]
+    },
+    {
+      "id": "q2",
+      "text": "Within your field, what area fascinates you the most?",
+      "type": "multiple-choice-multi",
+      "options": [
+        {"value": "The theoretical and research aspects", "maps_to_values": ["Research", "Innovation"]},
+        {"value": "The practical, hands-on application", "maps_to_values": ["Hands-on problem solving", "Technical skill"]},
+        {"value": "The management and business side of it", "maps_to_skills": ["Project Management", "Financial Management"]},
+        {"value": "The public policy and governance angle", "maps_to_skills": ["Public Policy", "Administration"]}
+      ]
+    },
+    {
+      "id": "q3",
+      "text": "What kind of role do you see yourself in 5 years after graduating?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "A technical expert in a specialized role", "maps_to_occupations": ["AI/ML Engineer", "VLSI Design"]},
+        {"value": "A manager leading a team or project", "maps_to_occupations": ["Project Management", "Marketing Manager"]},
+        {"value": "An independent professional or consultant", "maps_to_values": ["Entrepreneurship"]},
+        {"value": "A civil servant or working in a government agency", "maps_to_occupations": ["Civil Servant (JKAS/IAS)"]},
+        {"value": "Pursuing a PhD or in academia", "maps_to_education_path": ["PhD"]}
+      ]
+    },
+    {
+      "id": "q4",
+      "text": "Which of these skills are you actively trying to build alongside your degree?",
+      "type": "multiple-choice-multi",
+      "options": [
+        {"value": "Coding and software development", "maps_to_skills": ["Java/Python/C++", "Data Structures & Algorithms"]},
+        {"value": "Data analysis and machine learning", "maps_to_skills": ["Machine Learning", "Statistical Analysis"]},
+        {"value": "Business and financial acumen", "maps_to_skills": ["Financial Modeling", "Brand Management"]},
+        {"value": "Communication and public speaking", "maps_to_skills": ["Communication", "Argumentation"]},
+        {"value": "Design and creative tools", "maps_to_skills": ["Adobe Creative Suite", "Figma/Sketch"]}
+      ]
+    },
+    {
+      "id": "q5",
+      "text": "What is your main motivation for post-graduation?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Higher studies (Masters/PhD) in India", "maps_to_top_colleges": true},
+        {"value": "Higher studies abroad", "maps_to_values": []},
+        {"value": "Securing a job in a top private company (MNC)", "maps_to_local_opportunities": true},
+        {"value": "Preparing for government jobs (UPSC, JKPSC, etc.)", "maps_to_govt_jobs": true},
+        {"value": "Starting my own venture", "maps_to_values": ["Entrepreneurship"]}
+      ]
+    },
+    {
+      "id": "q6",
+      "text": "Are you interested in interdisciplinary work?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Yes, for example, combining technology with healthcare", "maps_to_occupations": ["AI/ML Engineer in Healthcare"]},
+        {"value": "Yes, for example, combining finance with technology (Fintech)", "maps_to_occupations": ["Data Scientist in Fintech"]},
+        {"value": "No, I prefer to focus deeply on my core subject", "maps_to_values": ["Specialization"]}
+      ]
+    },
+    {
+      "id": "q7",
+      "text": "How important is work-life balance to you?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Very important, I need a predictable schedule", "maps_to_values": ["Stability", "Structured work"]},
+        {"value": "I am willing to work long hours for a rewarding career", "maps_to_values": ["Innovation"]},
+        {"value": "Flexibility in work hours is most important", "maps_to_values": ["Entrepreneurship"]}
+      ]
+    },
+    {
+      "id": "q8",
+      "text": "Do you prefer working on long-term projects or short-term, fast-paced tasks?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Long-term projects (e.g., building infrastructure, research)", "maps_to_occupations": ["Civil Engineer", "Data Scientist"]},
+        {"value": "Short-term tasks (e.g., consulting, software sprints)", "maps_to_occupations": ["Software Developer", "Financial Analyst"]},
+        {"value": "A mix of both", "maps_to_values": []}
+      ]
+    },
+    {
+      "id": "q9",
+      "text": "What kind of impact do you want to create?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Technological innovation", "maps_to_clusters": ["Engineering & Technology"]},
+        {"value": "Societal well-being and health", "maps_to_clusters": ["Healthcare & Medicine"]},
+        {"value": "Economic growth and financial stability", "maps_to_clusters": ["Commerce & Management"]},
+        {"value": "Policy and governance reform", "maps_to_clusters": ["Public Administration"]},
+        {"value": "Cultural and creative expression", "maps_to_clusters": ["Creative Arts & Media"]}
+      ]
+    },
+    {
+      "id": "q10",
+      "text": "Are you aiming for a career within Jammu & Kashmir or are you open to relocating?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "I want to build my career in J&K", "maps_to_jk_colleges": true, "maps_to_local_opportunities": true},
+        {"value": "I am open to relocating anywhere in India or abroad", "maps_to_top_colleges": true},
+        {"value": "It depends on the opportunity", "maps_to_values": []}
+      ]
+    },
+    {
+      "id": "q11",
+      "text": "Which of these core activities sounds most engaging to you?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Analyzing systems and data to find insights and solutions.", "maps_to_clusters": ["Engineering & Technology", "Commerce & Management"]},
+        {"value": "Designing, building, and maintaining physical structures or machines.", "maps_to_clusters": ["Engineering & Technology", "Skilled Trades"]},
+        {"value": "Providing direct care, diagnosis, and support to people.", "maps_to_clusters": ["Healthcare & Medicine"]},
+        {"value": "Creating compelling content, visuals, or media.", "maps_to_clusters": ["Creative Arts & Media"]},
+        {"value": "Developing and executing strategies for business growth or public service.", "maps_to_clusters": ["Commerce & Management", "Public Administration", "Legal Services"]}
+      ]
+    },
+    {
+      "id": "q12",
+      "text": "How important is continuous learning and upskilling in your ideal career?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Essential, I want to be at the cutting edge", "maps_to_values": ["Continuous learning", "Innovation"]},
+        {"value": "Important, but I also value stability", "maps_to_values": ["Stability"]},
+        {"value": "I'd prefer a job where the core skills don't change too often", "maps_to_values": ["Structured work"]}
+      ]
+    },
+    {
+      "id": "q13",
+      "text": "Do you prefer client-facing roles or backend/technical roles?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Client-facing (e.g., consulting, sales, patient care)", "maps_to_skills": ["Client Counseling", "Customer Service", "Patient communication"]},
+        {"value": "Backend/Technical (e.g., research, development, analysis)", "maps_to_skills": ["Research", "Data Structures & Algorithms", "Financial Modeling"]},
+        {"value": "A role with a balance of both", "maps_to_values": []}
+      ]
+    },
+    {
+      "id": "q14",
+      "text": "What is your risk appetite for your career?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Low - I prefer a secure, stable path (e.g., government job)", "maps_to_govt_jobs": true},
+        {"value": "Medium - I'm open to working in established private companies", "maps_to_local_opportunities": true},
+        {"value": "High - I'm interested in startups or starting my own business", "maps_to_values": ["Entrepreneurship"]}
+      ]
+    },
+    {
+      "id": "q15",
+      "text": "What kind of team do you work best in?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "A team of technical experts and engineers", "maps_to_clusters": ["Engineering & Technology"]},
+        {"value": "A team of doctors and healthcare professionals", "maps_to_clusters": ["Healthcare & Medicine"]},
+        {"value": "A team of business strategists and analysts", "maps_to_clusters": ["Commerce & Management"]},
+        {"value": "A team of creative artists and communicators", "maps_to_clusters": ["Creative Arts & Media"]}
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,171 @@
+{
+  "title": "Career Discovery Questionnaire (10th Grade)",
+  "description": "This questionnaire will help you explore your interests and find career paths that might be a good fit for you. Answer honestly!",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Which of these subjects do you enjoy the most in school?",
+      "type": "multiple-choice-multi",
+      "options": [
+        {"value": "Math", "maps_to_clusters": ["Engineering & Technology", "Commerce & Management"]},
+        {"value": "Science (Physics, Chemistry, Biology)", "maps_to_clusters": ["Engineering & Technology", "Healthcare & Medicine", "Agriculture & Allied Activities"]},
+        {"value": "Social Studies (History, Civics)", "maps_to_clusters": ["Public Administration", "Legal Services", "Tourism & Hospitality"]},
+        {"value": "Computers/IT", "maps_to_clusters": ["Engineering & Technology"]},
+        {"value": "Art/Craft", "maps_to_clusters": ["Creative Arts & Media"]}
+      ]
+    },
+    {
+      "id": "q2",
+      "text": "What kind of activities do you like to do in your free time?",
+      "type": "multiple-choice-multi",
+      "options": [
+        {"value": "Building things or taking them apart (like gadgets, models)", "maps_to_values": ["Hands-on problem solving", "Technical skill"]},
+        {"value": "Helping people or animals", "maps_to_values": ["Empathy", "Public service", "Animal welfare"]},
+        {"value": "Drawing, painting, or designing things", "maps_to_values": ["Creativity", "Aesthetics"]},
+        {"value": "Using computers for gaming or learning to code", "maps_to_values": ["Logical thinking", "Innovation"]},
+        {"value": "Reading about current events or history", "maps_to_values": ["Public interest", "Governance"]}
+      ]
+    },
+    {
+      "id": "q3",
+      "text": "I am good at...",
+      "type": "multiple-choice-multi",
+      "options": [
+        {"value": "Solving math problems", "maps_to_skills": ["Statistical Analysis", "Problem-solving"]},
+        {"value": "Understanding how things work", "maps_to_skills": ["Thermodynamics", "Circuit Design"]},
+        {"value": "Explaining ideas clearly to others", "maps_to_skills": ["Communication", "Client Counseling"]},
+        {"value": "Working with my hands", "maps_to_skills": ["Manual precision", "Technical skill"]},
+        {"value": "Remembering facts and details", "maps_to_skills": ["Legal Research", "Medical diagnosis"]}
+      ]
+    },
+    {
+      "id": "q4",
+      "text": "After 10th grade, which stream are you thinking of choosing?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Science (Medical)", "maps_to_clusters": ["Healthcare & Medicine"]},
+        {"value": "Science (Non-Medical)", "maps_to_clusters": ["Engineering & Technology"]},
+        {"value": "Commerce", "maps_to_clusters": ["Commerce & Management"]},
+        {"value": "Arts/Humanities", "maps_to_clusters": ["Creative Arts & Media", "Legal Services", "Public Administration"]},
+        {"value": "Vocational/ITI", "maps_to_clusters": ["Skilled Trades"]}
+      ]
+    },
+    {
+      "id": "q5",
+      "text": "What kind of work environment sounds most appealing?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Working outdoors, in nature", "maps_to_values": ["Nature", "Outdoor field work"]},
+        {"value": "In an office with a team", "maps_to_values": ["Teamwork", "Organizational culture"]},
+        {"value": "In a lab or a workshop", "maps_to_values": ["Hands-on problem solving", "Research"]},
+        {"value": "On a construction site or a big project", "maps_to_values": ["Nation building", "Infrastructure development"]},
+        {"value": "In a hospital or a clinic", "maps_to_values": ["Healthcare support", "Patient-focused care"]}
+      ]
+    },
+    {
+      "id": "q6",
+      "text": "When you see a problem, you first...",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Analyze it logically and think of steps to solve it", "maps_to_values": ["Problem-solving", "Analytical skill"]},
+        {"value": "Think of a creative or a new way to fix it", "maps_to_values": ["Innovation", "Creativity"]},
+        {"value": "Ask how it affects people and try to help them", "maps_to_values": ["Empathy", "Public service"]},
+        {"value": "Want to build or create a physical solution", "maps_to_values": ["Hands-on problem solving"]}
+      ]
+    },
+    {
+      "id": "q7",
+      "text": "How important is it for you to have a job that helps society?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Very important", "maps_to_values": ["Public service", "Service to society", "Nation building"]},
+        {"value": "Somewhat important", "maps_to_values": []},
+        {"value": "Not my main priority", "maps_to_values": []}
+      ]
+    },
+    {
+      "id": "q8",
+      "text": "Would you prefer a job that requires a lot of physical activity?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Yes, I like being active", "maps_to_clusters": ["Skilled Trades", "Public Administration"]},
+        {"value": "No, I prefer a desk job", "maps_to_clusters": ["Engineering & Technology", "Commerce & Management"]},
+        {"value": "A mix of both is fine", "maps_to_clusters": ["Healthcare & Medicine", "Agriculture & Allied Activities"]}
+      ]
+    },
+    {
+      "id": "q9",
+      "text": "Are you interested in how laws are made and how the country is run?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Yes, very much", "maps_to_clusters": ["Legal Services", "Public Administration"]},
+        {"value": "A little bit", "maps_to_values": ["Governance"]},
+        {"value": "Not really", "maps_to_values": []}
+      ]
+    },
+    {
+      "id": "q10",
+      "text": "Which of these achievements sounds most exciting to you?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Creating a popular app or technology.", "maps_to_clusters": ["Engineering & Technology"]},
+        {"value": "Designing and building a major public project.", "maps_to_clusters": ["Engineering & Technology"]},
+        {"value": "Finding a cure or helping sick people get better.", "maps_to_clusters": ["Healthcare & Medicine"]},
+        {"value": "Managing a successful business or financial portfolio.", "maps_to_clusters": ["Commerce & Management"]},
+        {"value": "Serving the public and improving your community.", "maps_to_clusters": ["Public Administration", "Legal Services"]}
+      ]
+    },
+    {
+      "id": "q11",
+      "text": "Do you enjoy leading a team or group?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Yes, I like taking charge", "maps_to_skills": ["Leadership", "Project Management"]},
+        {"value": "I prefer working as part of a team", "maps_to_skills": ["Teamwork"]},
+        {"value": "I prefer working alone", "maps_to_skills": []}
+      ]
+    },
+    {
+      "id": "q12",
+      "text": "How do you feel about working with numbers and data?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "I love it, I find patterns interesting", "maps_to_skills": ["Statistical Analysis", "Data-driven decision making"]},
+        {"value": "I am okay with it for basic tasks", "maps_to_skills": []},
+        {"value": "I prefer to avoid it", "maps_to_skills": []}
+      ]
+    },
+    {
+      "id": "q13",
+      "text": "Are you interested in Jammu & Kashmir's local culture, like its art, food, or tourism?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Yes, I'm very passionate about it", "maps_to_clusters": ["Creative Arts & Media", "Tourism & Hospitality"]},
+        {"value": "It's interesting, but not for a career", "maps_to_values": []},
+        {"value": "Not my primary interest", "maps_to_values": []}
+      ]
+    },
+    {
+      "id": "q14",
+      "text": "Would you prefer a job with a fixed routine or one with new challenges every day?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "Fixed routine", "maps_to_values": ["Stability", "Structured work"]},
+        {"value": "New challenges", "maps_to_values": ["Innovation", "Problem-solving"]},
+        {"value": "A balance of both", "maps_to_values": []}
+      ]
+    },
+    {
+      "id": "q15",
+      "text": "What is your main goal after finishing your education?",
+      "type": "multiple-choice-single",
+      "options": [
+        {"value": "To get a secure government job", "maps_to_govt_jobs": true},
+        {"value": "To work in a top private company", "maps_to_local_opportunities": true},
+        {"value": "To start my own business", "maps_to_values": ["Entrepreneurship"]},
+        {"value": "To pursue higher studies and research", "maps_to_education_path": ["PhD", "Master's"]}
+      ]
+    }
+  ]
+}
+

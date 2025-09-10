@@ -1,0 +1,154 @@
+.colleges-section {
+    width: 100%;
+}
+
+.search-container {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.search-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    width: 100%;
+    padding: 1rem 1.5rem 1rem 3rem;
+    border: 2px solid rgba(13, 115, 119, 0.2);
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #FFFFFF;
+    color: #212121;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #14FFEC;
+    box-shadow: 0 0 20px rgba(20, 255, 236, 0.2);
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    color: #323232;
+    z-index: 1;
+}
+
+.filter-chips {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filter-chip {
+    padding: 0.5rem 1rem;
+    border: 2px solid rgba(13, 115, 119, 0.2);
+    border-radius: 25px;
+    background: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #212121;
+}
+
+.filter-chip:hover, .filter-chip.active {
+    border-color: #0D7377;
+    background: rgba(13, 115, 119, 0.1);
+    color: #0D7377;
+}
+
+.college-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.college-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #0D7377, #14FFEC);
+    position: relative;
+    overflow: hidden;
+}
+
+.college-badge {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    color: white;
+    font-weight: 600;
+}
+
+.college-info {
+    padding: 1.5rem;
+}
+
+.college-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #212121;
+}
+
+.college-location {
+    color: #323232;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.college-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.stars {
+    display: flex;
+    gap: 2px;
+}
+
+.college-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.feature-tag {
+    background: rgba(13, 115, 119, 0.1);
+    color: #0D7377;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.college-modal-content {
+    text-align: center;
+}
+
+.college-modal-header {
+    margin-bottom: 2rem;
+}
+
+.college-modal-rating {
+    margin: 2rem 0;
+}
+
+.college-modal-rating h4 {
+    color: #0D7377;
+}
+
+@media (max-width: 768px) {
+    .college-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}

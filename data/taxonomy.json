@@ -1,0 +1,578 @@
+{
+  "clusters": [
+    {
+      "name": "Engineering & Technology",
+      "groups": [
+        {
+          "group_name": "AI & Data Science",
+          "occupations": [
+            {
+              "code": "2511.xxxx",
+              "title": "Data Scientist",
+              "skills_required": ["Python (Pandas, NumPy)", "Machine Learning", "SQL", "Statistical Analysis", "Data Visualization (Tableau)"],
+              "education_path": ["Master's in Data Science", "B.Tech in Computer Science", "PhD in a quantitative field"],
+              "exams_required": ["GATE (for M.Tech admissions)", "Specific PSU recruitment exams"],
+              "jk_colleges": ["IIT Jammu", "NIT Srinagar", "SMVDU Katra"],
+              "top_colleges": ["IISc Bangalore", "IIT Bombay", "IIT Madras", "ISI Kolkata"],
+              "values": ["Data-driven decision making", "Predictive modeling", "Problem-solving"],
+              "local_opportunities": ["Tech startups in Jammu/Srinagar", "Government data analysis projects", "Financial services and Fintech"],
+              "govt_jobs": ["National Informatics Centre (NIC)", "DRDO", "ISRO", "State e-Governance Agencies"]
+            },
+            {
+              "code": "2512.xxxx",
+              "title": "AI/ML Engineer",
+              "skills_required": ["Deep Learning (TensorFlow, PyTorch)", "Natural Language Processing (NLP)", "Computer Vision", "Algorithm optimization"],
+              "education_path": ["M.Tech in AI/ML", "B.Tech in Computer Science with specialization"],
+              "exams_required": ["GATE", "Recruitment tests for DRDO, ISRO"],
+              "jk_colleges": ["IIT Jammu", "NIT Srinagar", "University of Kashmir"],
+              "top_colleges": ["IIT Hyderabad", "IIIT Hyderabad", "IIT Bombay"],
+              "values": ["Innovation", "Automation", "Building intelligent systems"],
+              "local_opportunities": ["AI Startups", "Research wings of universities", "e-governance projects"],
+              "govt_jobs": ["DRDO", "Centre for Development of Advanced Computing (C-DAC)", "ISRO"]
+            }
+          ]
+        },
+        {
+          "group_name": "Computer & IT",
+          "occupations": [
+            {
+              "code": "2512.0100",
+              "title": "Software Developer",
+              "skills_required": ["Java/Python/C++", "Data Structures & Algorithms", "Agile Methodologies", "Cloud Computing (AWS/Azure)"],
+              "education_path": ["B.Tech in Computer Science", "BCA/MCA"],
+              "exams_required": ["GATE (for PSUs/M.Tech)", "NIC Scientist 'B' Exam"],
+              "jk_colleges": ["NIT Srinagar", "University of Jammu", "University of Kashmir", "SMVDU Katra", "MIET Jammu"],
+              "top_colleges": ["IITs", "NITs", "IIITs", "BITS Pilani"],
+              "values": ["Innovation", "Logical thinking", "Continuous learning"],
+              "local_opportunities": ["IT Parks in Jammu/Srinagar", "Startup ecosystem", "Remote work for national/global companies"],
+              "govt_jobs": ["PSUs (PGCIL, BHEL, NTPC)", "National Informatics Centre (NIC)", "State IT Departments"]
+            },
+            {
+                "code": "2166.xxxx",
+                "title": "UI/UX Designer",
+                "skills_required": ["Figma/Sketch", "Prototyping", "User Research", "Wireframing", "Interaction Design"],
+                "education_path": ["Bachelor of Design (B.Des)", "Human-Computer Interaction (HCI) courses"],
+                "exams_required": ["UCEED", "NID DAT (for admissions)"],
+                "jk_colleges": ["University of Kashmir (Institute of Fine Arts)", "University of Jammu (Institute of Music and Fine Arts)"],
+                "top_colleges": ["National Institute of Design (NID)", "IDC School of Design (IIT Bombay)", "Srishti Institute of Art, Design and Technology"],
+                "values": ["User-centricity", "Empathy", "Aesthetic sense", "Problem-solving"],
+                "local_opportunities": ["Software companies in J&K", "E-commerce platforms", "Freelance projects"],
+                "govt_jobs": ["Designer roles in NIC for government portals", "MyGov initiatives", "Digital India projects"]
+            },
+            {
+              "code": "2522.xxxx",
+              "title": "Cloud Engineer",
+              "skills_required": ["AWS/Azure/GCP", "Infrastructure as Code (Terraform)", "CI/CD pipelines", "Containerization (Docker, Kubernetes)"],
+              "education_path": ["B.Tech in IT/CS", "Cloud Certifications (AWS, Azure)"],
+              "exams_required": ["PSU recruitment exams for IT roles"],
+              "jk_colleges": ["Most engineering colleges offer foundational skills; specialization via online courses is common."],
+              "top_colleges": ["IITs & NITs provide strong foundation. Specialization via certifications is key."],
+              "values": ["Scalability", "Cost-efficiency", "System reliability"],
+              "local_opportunities": ["Government data centers", "Enterprise IT for local businesses", "Digital-native startups"],
+              "govt_jobs": ["National Informatics Centre (NIC) Cloud Services", "State Data Centres"]
+            },
+            {
+              "code": "2529.xxxx",
+              "title": "Cybersecurity Analyst",
+              "skills_required": ["Threat analysis", "SIEM tools", "Penetration testing", "Incident response"],
+              "education_path": ["B.Tech in Cybersecurity/IT", "Certifications (CISSP, CEH)"],
+              "exams_required": ["Specific exams for intelligence and security agencies"],
+              "jk_colleges": ["University of Jammu", "MIET Jammu (offers cybersecurity courses)"],
+              "top_colleges": ["IIIT Delhi", "Amrita Vishwa Vidyapeetham", "SRM University"],
+              "values": ["Data protection", "Risk management", "Vigilance"],
+              "local_opportunities": ["J&K Bank", "Government security agencies", "IT consulting firms"],
+              "govt_jobs": ["CERT-In", "National Technical Research Organisation (NTRO)", "IB", "State Police Cyber Cells"]
+            }
+          ]
+        },
+        {
+          "group_name": "Mechanical Engineering",
+          "occupations": [
+            {
+              "code": "2144.0100",
+              "title": "Mechanical Engineer",
+              "skills_required": ["Thermodynamics", "CAD/CAM (AutoCAD, SolidWorks)", "Manufacturing Processes", "FEA"],
+              "education_path": ["B.Tech/B.E. in Mechanical Engineering"],
+              "exams_required": ["GATE", "ESE (Engineering Services Examination)", "SSC JE", "PSU Exams (e.g., IOCL, ONGC)"],
+              "jk_colleges": ["NIT Srinagar", "GCET Jammu", "SMVDU Katra", "MIET Jammu"],
+              "top_colleges": ["IIT Bombay", "IIT Delhi", "IIT Madras", "IIT Kanpur"],
+              "values": ["Efficiency", "Design optimization", "Hands-on problem solving"],
+              "local_opportunities": ["Automobile service industry", "Manufacturing units in industrial estates (Bari Brahmana, Samba)", "Public sector units like NHPC"],
+              "govt_jobs": ["Indian Railways", "Defence (MES, DRDO)", "State AE/JE roles", "CPWD"]
+            }
+          ]
+        },
+        {
+          "group_name": "Electrical & Electronics Engineering",
+          "occupations": [
+            {
+              "code": "2151.0100",
+              "title": "Electrical Engineer",
+              "skills_required": ["Power Systems", "Circuit Design", "Control Systems", "PLC/SCADA"],
+              "education_path": ["B.Tech/B.E. in Electrical Engineering (EE)"],
+              "exams_required": ["GATE", "ESE", "SSC JE", "PSU Exams (e.g., PGCIL, NTPC)"],
+              "jk_colleges": ["NIT Srinagar", "GCET Jammu", "MIET Jammu", "University of Kashmir (North Campus)"],
+              "top_colleges": ["IIT Delhi", "IIT Kharagpur", "IIT Roorkee", "NIT Trichy"],
+              "values": ["Energy management", "System safety", "Reliability"],
+              "local_opportunities": ["Power Development Dept. (PDD)", "NHPC (Hydropower projects)", "Industrial maintenance"],
+              "govt_jobs": ["State Electricity Boards", "Indian Railways", "Central Public Works Department (CPWD)"]
+            },
+            {
+              "code": "2152.0200",
+              "title": "Electronics & Communication Engineer",
+              "skills_required": ["VLSI Design", "Embedded Systems", "Signal Processing", "IoT"],
+              "education_path": ["B.Tech/B.E. in Electronics & Communication (ECE)"],
+              "exams_required": ["GATE", "ESE", "Exams for ISRO, DRDO, BSNL/MTNL (JTO)"],
+              "jk_colleges": ["NIT Srinagar", "SMVDU Katra", "MIET Jammu", "University of Jammu"],
+              "top_colleges": ["IIT Kharagpur", "IIT Roorkee", "NIT Warangal", "IIIT Hyderabad"],
+              "values": ["Connectivity", "Miniaturization", "Technological advancement"],
+              "local_opportunities": ["Telecommunications sector (Jio, Airtel)", "Government IT services", "Consumer electronics repair and service"],
+              "govt_jobs": ["BSNL/MTNL", "ISRO", "DRDO", "Airport Authority of India (AAI)"]
+            }
+          ]
+        },
+        {
+          "group_name": "Civil Engineering",
+          "occupations": [
+            {
+              "code": "2142.0100",
+              "title": "Civil Engineer",
+              "skills_required": ["Structural Analysis", "AutoCAD", "Project Management", "Geotechnical Engineering"],
+              "education_path": ["B.Tech/B.E. in Civil Engineering"],
+              "exams_required": ["GATE", "ESE", "SSC JE", "State PSC (AE/JE) exams"],
+              "jk_colleges": ["NIT Srinagar", "GCET Jammu", "MIET Jammu", "Islamic University of Science & Technology"],
+              "top_colleges": ["IIT Madras", "IIT Delhi", "IIT Roorkee", "NIT Trichy"],
+              "values": ["Public safety", "Sustainable infrastructure", "Nation building"],
+              "local_opportunities": ["Infrastructure projects (NHAI, Metros, BRO)", "PWD, Jal Shakti Dept.", "Real estate development"],
+              "govt_jobs": ["Public Works Department (PWD)", "CPWD", "Border Roads Organisation (BRO)", "National Highways Authority of India (NHAI)"]
+            }
+          ]
+        },
+        {
+            "group_name": "Architecture & Planning",
+            "occupations": [
+                {
+                    "code": "2161.0100",
+                    "title": "Architect",
+                    "skills_required": ["Architectural Design", "AutoCAD/Revit", "Building Codes", "Sustainable Design"],
+                    "education_path": ["Bachelor of Architecture (B.Arch)"],
+                    "exams_required": ["NATA", "JEE Main (Paper 2) for admissions"],
+                    "jk_colleges": ["School of Architecture & Landscape Design (SMVDU)", "School of Architecture, University of Jammu"],
+                    "top_colleges": ["School of Planning and Architecture (SPA) Delhi", "CEPT University, Ahmedabad", "IIT Roorkee"],
+                    "values": ["Creativity", "Spatial awareness", "Functionality"],
+                    "local_opportunities": ["Urban development projects", "Private architectural firms", "Government town planning departments"],
+                    "govt_jobs": ["Town & Country Planning Organization", "CPWD", "Archaeological Survey of India (ASI)", "Housing Boards"]
+                }
+            ]
+        }
+      ]
+    },
+    {
+      "name": "Healthcare & Medicine",
+      "groups": [
+        {
+          "group_name": "Medical Professionals",
+          "occupations": [
+            {
+              "code": "2211.0100",
+              "title": "General Physician",
+              "skills_required": ["Medical diagnosis", "Patient communication", "Pharmacology", "Telehealth platforms"],
+              "education_path": ["MBBS", "MD in General Medicine"],
+              "exams_required": ["NEET-UG (for MBBS)", "NEET-PG (for MD)"],
+              "jk_colleges": ["GMC Jammu", "GMC Srinagar", "SKIMS Srinagar", "ASCOMS Jammu"],
+              "top_colleges": ["AIIMS Delhi", "CMC Vellore", "JIPMER Puducherry", "KGMU Lucknow"],
+              "values": ["Empathy", "Ethical practice", "Lifelong learning"],
+              "local_opportunities": ["Government hospitals and primary health centers", "Private clinics", "Telemedicine startups"],
+              "govt_jobs": ["UPSC Combined Medical Services (CMS)", "State PSC Medical Officer", "Army Medical Corps (AMC)"]
+            },
+            {
+              "code": "2212.0100",
+              "title": "Dentist",
+              "skills_required": ["Dental surgery", "Manual precision", "Patient handling", "Oral hygiene"],
+              "education_path": ["BDS", "MDS"],
+              "exams_required": ["NEET-UG (for BDS)", "NEET-MDS (for MDS)"],
+              "jk_colleges": ["Government Dental College Srinagar", "Indira Gandhi Govt. Dental College Jammu", "Institute of Dental Sciences Jammu"],
+              "top_colleges": ["Manipal College of Dental Sciences", "Maulana Azad Institute of Dental Sciences, Delhi", "Dr. D. Y. Patil Dental College & Hospital, Pune"],
+              "values": ["Healthcare", "Specialization", "Aesthetic improvement"],
+              "local_opportunities": ["Private dental clinics", "Government hospitals", "Dental colleges"],
+              "govt_jobs": ["Government Hospitals", "Army Dental Corps", "ESI Hospitals"]
+            }
+          ]
+        },
+        {
+            "group_name": "Nursing and Allied Health",
+            "occupations": [
+                {
+                  "code": "2221.0100",
+                  "title": "Nurse",
+                  "skills_required": ["Patient care", "Medical procedures", "Empathy", "Record keeping"],
+                  "education_path": ["B.Sc Nursing", "GNM"],
+                  "exams_required": ["State Nursing Entrance Exams", "AIIMS Nursing Officer Exam"],
+                  "jk_colleges": ["Govt. College of Nursing Jammu/Srinagar", "Stephens Institute of Paramedical Sciences, Jammu", "SKIMS Nursing College"],
+                  "top_colleges": ["AIIMS Delhi", "CMC Vellore", "PGIMER Chandigarh"],
+                  "values": ["Service", "Compassion", "Healthcare support"],
+                  "local_opportunities": ["District hospitals", "Private nursing homes", "NGOs", "Army medical corps"],
+                  "govt_jobs": ["Government Hospitals", "Railway Hospitals", "Military Nursing Service (MNS)"]
+                },
+                {
+                  "code": "2262.0100",
+                  "title": "Pharmacist",
+                  "skills_required": ["Drug dispensing", "Pharmacology", "Patient counseling", "Inventory management"],
+                  "education_path": ["B.Pharm", "D.Pharm"],
+                  "exams_required": ["State Pharmacy Entrance Exams"],
+                  "jk_colleges": ["University of Kashmir (Dept. of Pharmaceutical Sciences)", "Jammu University (Dept. of Pharmaceutical Sciences)"],
+                  "top_colleges": ["NIPER Mohali", "Jamia Hamdard", "Panjab University"],
+                  "values": ["Patient safety", "Accuracy", "Healthcare support"],
+                  "local_opportunities": ["Retail pharmacies", "Hospitals", "Pharmaceutical companies"],
+                  "govt_jobs": ["Government Hospitals", "CGHS Dispensaries", "Drug Inspector roles"]
+                }
+            ]
+        },
+        {
+            "group_name": "Specialist Doctors",
+            "occupations": [
+                {
+                    "code": "2212.0500",
+                    "title": "Cardiologist",
+                    "skills_required": ["Echocardiography", "Interventional Cardiology", "ECG Interpretation", "Critical Care"],
+                    "education_path": ["MBBS", "MD in Medicine", "DM in Cardiology"],
+                    "exams_required": ["NEET-UG, NEET-PG, NEET-SS"],
+                    "jk_colleges": ["SKIMS Srinagar", "GMC Jammu", "GMC Srinagar"],
+                    "top_colleges": ["AIIMS Delhi", "PGIMER Chandigarh", "SCTIMST, Trivandrum"],
+                    "values": ["Precision", "Calm under pressure", "Patient-focused care"],
+                    "local_opportunities": ["Super specialty hospitals", "Private practice", "Medical colleges"],
+                    "govt_jobs": ["Super Specialty Government Hospitals", "Faculty in Government Medical Colleges"]
+                },
+                {
+                    "code": "2212.1400",
+                    "title": "Orthopedic Surgeon",
+                    "skills_required": ["Trauma Surgery", "Joint Replacement", "Arthroscopy", "Diagnostic Imaging"],
+                    "education_path": ["MBBS", "MS in Orthopedics"],
+                    "exams_required": ["NEET-UG, NEET-PG"],
+                    "jk_colleges": ["GMC Jammu", "GMC Srinagar", "SKIMS Srinagar"],
+                    "top_colleges": ["AIIMS Delhi", "PGIMER Chandigarh", "KMC Manipal"],
+                    "values": ["Restoring mobility", "Surgical skill", "Rehabilitation"],
+                    "local_opportunities": ["Bone and Joint Hospitals", "Government hospitals", "Private practice"],
+                    "govt_jobs": ["Specialist in Government Hospitals", "Faculty in Medical Colleges"]
+                }
+            ]
+        }
+      ]
+    },
+    {
+      "name": "Commerce & Management",
+      "groups": [
+        {
+          "group_name": "Finance & Accounting",
+          "occupations": [
+            {
+              "code": "2411.0100",
+              "title": "Chartered Accountant (CA)",
+              "skills_required": ["Auditing", "Taxation", "Financial Reporting", "Corporate Law"],
+              "education_path": ["ICAI Foundation, Intermediate, Final Exams", "B.Com"],
+              "exams_required": ["ICAI Exams"],
+              "jk_colleges": ["University of Jammu", "University of Kashmir", "Cluster University of Srinagar/Jammu for B.Com"],
+              "top_colleges": ["Shri Ram College of Commerce (DU)", "Loyola College Chennai", "Christ University Bangalore (for B.Com)"],
+              "values": ["Integrity", "Analytical skill", "Financial expertise"],
+              "local_opportunities": ["Audit firms", "J&K Bank", "Corporate finance departments"],
+              "govt_jobs": ["PSUs", "Regulatory bodies (SEBI, RBI)", "CAG office"]
+            },
+            {
+              "code": "2412.0200",
+              "title": "Financial Analyst",
+              "skills_required": ["Financial Modeling", "Valuation", "Equity Research", "Excel"],
+              "education_path": ["MBA in Finance", "CFA Charter"],
+              "exams_required": ["CAT/XAT/GMAT (for MBA)", "CFA Exams"],
+              "jk_colleges": ["The Business School (University of Jammu)", "Dept. of Management Studies (University of Kashmir)", "IIM Jammu"],
+              "top_colleges": ["IIM Ahmedabad", "IIM Bangalore", "IIM Calcutta", "ISB Hyderabad"],
+              "values": ["Investment strategy", "Data analysis", "Market insight"],
+              "local_opportunities": ["J&K Bank (Treasury)", "Stockbroking firms", "Investment advisory services"],
+              "govt_jobs": ["RBI Grade B Officer", "SEBI Grade A Officer", "Financial roles in PSUs"]
+            }
+          ]
+        },
+        {
+          "group_name": "Business Operations",
+          "occupations": [
+            {
+              "code": "1212.0100",
+              "title": "Human Resource (HR) Manager",
+              "skills_required": ["Recruitment", "Employee Relations", "Performance Management", "Labor Laws"],
+              "education_path": ["MBA in HR", "PGDM in HR"],
+              "exams_required": ["CAT/XAT/GMAT (for MBA)"],
+              "jk_colleges": ["The Business School (University of Jammu)", "IIM Jammu", "Central University of Kashmir"],
+              "top_colleges": ["XLRI Jamshedpur", "TISS Mumbai", "IIMs"],
+              "values": ["People management", "Organizational culture", "Fairness"],
+              "local_opportunities": ["Corporates in Jammu/Srinagar", "J&K Bank", "Hotel and tourism industry"],
+              "govt_jobs": ["HR Officer roles in PSUs (e.g., SAIL, Coal India, NTPC)"]
+            }
+          ]
+        },
+        {
+            "group_name": "Sales & Marketing",
+            "occupations": [
+                {
+                    "code": "2433.xxxx",
+                    "title": "Marketing Manager",
+                    "skills_required": ["Brand Management", "Market Research", "Digital Marketing", "Campaign Management"],
+                    "education_path": ["MBA in Marketing"],
+                    "exams_required": ["CAT/XAT/GMAT (for MBA)"],
+                    "jk_colleges": ["IIM Jammu", "The Business School (University of Jammu)", "Islamic University of Science & Technology"],
+                    "top_colleges": ["IIMs", "MDI Gurgaon", "FMS Delhi"],
+                    "values": ["Creativity", "Strategic thinking", "Customer focus"],
+                    "local_opportunities": ["FMCG companies", "Tourism sector", "Handicrafts export houses"],
+                    "govt_jobs": ["Marketing Officer roles in PSUs", "J&K Tourism Department"]
+                }
+            ]
+        }
+      ]
+    },
+    {
+      "name": "Creative Arts & Media",
+      "groups": [
+        {
+          "group_name": "Media & Communication",
+          "occupations": [
+            {
+              "code": "2642.0100",
+              "title": "Journalist",
+              "skills_required": ["Writing", "Interviewing", "Research", "Digital media tools"],
+              "education_path": ["Bachelor/Master of Journalism and Mass Communication"],
+              "exams_required": ["IIMC Entrance Exam", "University specific exams"],
+              "jk_colleges": ["University of Kashmir (Media Education Research Centre)", "IIMC Jammu", "Central University of Kashmir"],
+              "top_colleges": ["IIMC Delhi", "Symbiosis Institute of Media & Communication, Pune", "A.J.K. Mass Communication Research Centre, Jamia Millia Islamia"],
+              "values": ["Truthfulness", "Public interest", "Objectivity"],
+              "local_opportunities": ["Local news channels", "Digital media portals (e.g., The Kashmir Walla, Free Press Kashmir)", "National news agencies' local bureaus"],
+              "govt_jobs": ["Prasar Bharati (Doordarshan, All India Radio)", "Press Information Bureau (PIB)", "Ministry of I&B"]
+            },
+            {
+              "code": "2659.xxxx",
+              "title": "Content Creator / YouTuber",
+              "skills_required": ["Video Editing", "Content Strategy", "Audience Engagement", "Videography"],
+              "education_path": ["No formal education required, skill-based"],
+              "exams_required": ["N/A"],
+              "jk_colleges": ["N/A"],
+              "top_colleges": ["N/A"],
+              "values": ["Creativity", "Storytelling", "Entrepreneurship"],
+              "local_opportunities": ["Travel and tourism vlogging", "Food and culture channels", "Educational content creation"],
+              "govt_jobs": ["Social Media roles for government departments (e.g., Tourism, MyGov)"]
+            }
+          ]
+        },
+        {
+          "group_name": "Design",
+          "occupations": [
+            {
+              "code": "2166.0501",
+              "title": "Graphic Designer",
+              "skills_required": ["Adobe Creative Suite (Photoshop, Illustrator)", "Typography", "Visual Communication", "Branding"],
+              "education_path": ["Bachelor of Design (B.Des)", "Diploma in Graphic Design"],
+              "exams_required": ["NID DAT, UCEED (for admissions)"],
+              "jk_colleges": ["University of Kashmir (Institute of Fine Arts)", "University of Jammu (Institute of Music and Fine Arts)"],
+              "top_colleges": ["National Institute of Design (NID)", "IDC School of Design (IIT Bombay)", "MIT Institute of Design, Pune"],
+              "values": ["Aesthetics", "Creativity", "Communication"],
+              "local_opportunities": ["Advertising agencies", "Handicraft and e-commerce businesses", "Freelancing for local businesses"],
+              "govt_jobs": ["Designer roles in government's publication divisions", "Ministry of Culture"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Agriculture & Allied Activities",
+      "groups": [
+        {
+          "group_name": "Horticulture & Farming",
+          "occupations": [
+            {
+              "code": "2132.0200",
+              "title": "Horticulturist",
+              "skills_required": ["Crop Management", "Pest Control", "Soil Science", "Post-Harvest Technology"],
+              "education_path": ["B.Sc. in Horticulture/Agriculture"],
+              "exams_required": ["ICAR AIEEA (for admissions)"],
+              "jk_colleges": ["Sher-e-Kashmir University of Agricultural Sciences & Technology (SKUAST) - Kashmir/Jammu"],
+              "top_colleges": ["Indian Agricultural Research Institute (IARI), Delhi", "Punjab Agricultural University (PAU), Ludhiana"],
+              "values": ["Nature", "Food production", "Sustainability"],
+              "local_opportunities": ["J&K Horticulture Department", "Private orchards (apples, walnuts, saffron)", "Food processing industries"],
+              "govt_jobs": ["Horticulture Development Officer (via JKPSC)", "Agricultural Officer", "Scientist roles in ICAR"]
+            }
+          ]
+        },
+        {
+            "group_name": "Veterinary Sciences",
+            "occupations": [
+                {
+                    "code": "2250.0200",
+                    "title": "Veterinarian",
+                    "skills_required": ["Animal anatomy", "Surgery", "Diagnosis", "Pharmacology for animals"],
+                    "education_path": ["Bachelor of Veterinary Science & Animal Husbandry (B.V.Sc & AH)"],
+                    "exams_required": ["NEET-UG (for admissions to most colleges)"],
+                    "jk_colleges": ["SKUAST - Jammu (Faculty of Veterinary Sciences & Animal Husbandry)"],
+                    "top_colleges": ["Indian Veterinary Research Institute (IVRI), Bareilly", "Guru Angad Dev Veterinary and Animal Sciences University (GADVASU), Ludhiana"],
+                    "values": ["Animal welfare", "Compassion", "Scientific temperament"],
+                    "local_opportunities": ["J&K Animal Husbandry Department", "Private veterinary clinics", "Poultry and sheep farms"],
+                    "govt_jobs": ["State Veterinary Officer", "Army Remount Veterinary Corps (RVC)"]
+                }
+            ]
+        }
+      ]
+    },
+    {
+      "name": "Tourism & Hospitality",
+      "groups": [
+        {
+          "group_name": "Hotel Management",
+          "occupations": [
+            {
+              "code": "1411.0100",
+              "title": "Hotel Manager",
+              "skills_required": ["Customer Service", "Operations Management", "Financial Management", "Team Leadership"],
+              "education_path": ["Degree/Diploma in Hotel Management"],
+              "exams_required": ["NCHMCT JEE (for admissions)"],
+              "jk_colleges": ["Institute of Hotel Management (IHM) Srinagar", "Food Craft Institute Jammu"],
+              "top_colleges": ["IHM Pusa, Delhi", "Welcomgroup Graduate School of Hotel Administration (WGSHA), Manipal", "Oberoi Centre of Learning and Development"],
+              "values": ["Hospitality", "Service excellence", "Management"],
+              "local_opportunities": ["Hotels and resorts in Srinagar, Gulmarg, Pahalgam, Jammu, Katra", "Restaurant chains"],
+              "govt_jobs": ["Manager roles in ITDC Hotels", "State Tourism Development Corporation guest houses"]
+            }
+          ]
+        },
+        {
+          "group_name": "Travel Services",
+          "occupations": [
+            {
+              "code": "5113.0200",
+              "title": "Tour Guide",
+              "skills_required": ["Communication", "Local Knowledge", "Storytelling", "Customer Service"],
+              "education_path": ["Diploma/Degree in Tourism Management"],
+              "exams_required": ["Entrance exams for specific institutes like IITTM"],
+              "jk_colleges": ["University of Jammu (School of Hospitality & Tourism Management)", "Central University of Kashmir"],
+              "top_colleges": ["Indian Institute of Tourism and Travel Management (IITTM)"],
+              "values": ["Culture", "Travel", "Interpersonal skills"],
+              "local_opportunities": ["J&K Tourism Department", "Private travel agencies", "Freelance guide for trekking and adventure tours"],
+              "govt_jobs": ["Guide roles in J&K Tourism Dept.", "Archaeological Survey of India (ASI)"]
+            }
+          ]
+        },
+        {
+            "group_name": "Culinary Arts",
+            "occupations": [
+                {
+                    "code": "3434.0100",
+                    "title": "Chef",
+                    "skills_required": ["Cooking Techniques", "Menu Planning", "Kitchen Management", "Food Safety"],
+                    "education_path": ["Diploma/Degree in Culinary Arts or Hotel Management"],
+                    "exams_required": ["NCHMCT JEE (for admissions)"],
+                    "jk_colleges": ["IHM Srinagar", "Food Craft Institute Jammu"],
+                    "top_colleges": ["IHM Pusa, Delhi", "Culinary Academy of India, Hyderabad"],
+                    "values": ["Creativity", "Passion for food", "Discipline"],
+                    "local_opportunities": ["Hotels and restaurants", "Catering services", "Starting own food business (cafe/restaurant)"],
+                    "govt_jobs": ["Chef roles in state-run canteens, guest houses, and ITDC hotels"]
+                }
+            ]
+        }
+      ]
+    },
+    {
+      "name": "Public Administration",
+      "groups": [
+        {
+          "group_name": "Civil Services",
+          "occupations": [
+            {
+              "code": "1112.0400",
+              "title": "Civil Servant (JKAS/IAS)",
+              "skills_required": ["Public Policy", "Administration", "Decision Making", "Leadership"],
+              "education_path": ["Any Bachelor's Degree", "Competitive Exam Preparation"],
+              "exams_required": ["UPSC Civil Services Exam (CSE)", "JKPSC Combined Competitive Exam (CCE)"],
+              "jk_colleges": ["Any recognized degree college in J&K can be a starting point."],
+              "top_colleges": ["Any top university in India provides a good foundation for exam preparation."],
+              "values": ["Public service", "Governance", "Integrity"],
+              "local_opportunities": ["Jammu & Kashmir Administrative Service", "Indian Administrative Service with J&K cadre"],
+              "govt_jobs": ["This is a primary government job role."]
+            }
+          ]
+        },
+        {
+            "group_name": "Defence Services",
+            "occupations": [
+                {
+                    "code": "0110.xxxx",
+                    "title": "Army/Navy/Air Force Officer",
+                    "skills_required": ["Leadership", "Physical Fitness", "Strategic Thinking", "Discipline"],
+                    "education_path": ["NDA/CDS/AFCAT/Technical Entry Schemes after 10+2 or Graduation"],
+                    "exams_required": ["NDA Exam", "CDS Exam", "AFCAT"],
+                    "jk_colleges": ["Sainik School Nagrota (for early preparation)"],
+                    "top_colleges": ["National Defence Academy (NDA), Pune", "Indian Military Academy (IMA), Dehradun", "Air Force Academy, Dundigal"],
+                    "values": ["Patriotism", "Courage", "Service before self"],
+                    "local_opportunities": ["High recruitment from the region, especially through JAK LI, JAK RIF regiments"],
+                    "govt_jobs": ["This is a primary government job role in the Ministry of Defence."]
+                }
+            ]
+        }
+      ]
+    },
+    {
+      "name": "Legal Services",
+      "groups": [
+        {
+          "group_name": "Legal Practice",
+          "occupations": [
+            {
+              "code": "2611.0900",
+              "title": "Lawyer/Advocate",
+              "skills_required": ["Legal Research", "Argumentation", "Drafting", "Client Counseling"],
+              "education_path": ["LLB (3-year or 5-year integrated course)"],
+              "exams_required": ["CLAT (for admissions)", "Judicial Services Exam (for Judge)"],
+              "jk_colleges": ["University of Jammu (The Law School)", "University of Kashmir (School of Law)", "Central University of Kashmir"],
+              "top_colleges": ["National Law School of India University (NLSIU) Bangalore", "NALSAR Hyderabad", "Faculty of Law (DU)"],
+              "values": ["Justice", "Ethics", "Advocacy"],
+              "local_opportunities": ["Practice in J&K High Court and lower courts", "Corporate legal departments", "Government legal services"],
+              "govt_jobs": ["Public Prosecutor", "Law Officer in PSUs and Govt Depts.", "Judicial Officer/Judge"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Skilled Trades",
+      "groups": [
+        {
+          "group_name": "Construction & Maintenance",
+          "occupations": [
+            {
+              "code": "7411.0100",
+              "title": "Electrician",
+              "skills_required": ["Wiring", "Circuit Troubleshooting", "Safety Procedures", "Blueprint Reading"],
+              "education_path": ["ITI in Electrician Trade", "Diploma in Electrical Engineering"],
+              "exams_required": ["ITI/Diploma entrance exams"],
+              "jk_colleges": ["Government ITI Jammu", "Government ITI Srinagar", "Various Polytechnic Colleges"],
+              "top_colleges": ["National Skill Training Institutes (NSTI)"],
+              "values": ["Safety", "Technical skill", "Problem-solving"],
+              "local_opportunities": ["Construction industry", "Industrial maintenance", "Self-employment"],
+              "govt_jobs": ["Technician roles in Railways, PDD, PSUs, CPWD"]
+            }
+          ]
+        },
+        {
+            "group_name": "Automotive Trades",
+            "occupations": [
+                {
+                    "code": "7231.0100",
+                    "title": "Automobile Mechanic",
+                    "skills_required": ["Engine Diagnostics", "Vehicle Repair", "Brake Systems", "Electronics"],
+                    "education_path": ["ITI in Motor Mechanic Vehicle (MMV)", "Diploma in Automobile Engineering"],
+                    "exams_required": ["ITI/Diploma entrance exams"],
+                    "jk_colleges": ["Government ITI Jammu/Srinagar", "Polytechnics across J&K"],
+                    "top_colleges": ["Advanced Training Institutes (ATIs)"],
+                    "values": ["Technical proficiency", "Precision work", "Customer satisfaction"],
+                    "local_opportunities": ["Authorized service centers (Maruti, Hyundai, etc.)", "Private workshops", "Self-employment"],
+                    "govt_jobs": ["Mechanic roles in State Road Transport Corporations", "Defence vehicle workshops"]
+                }
+            ]
+        }
+      ]
+    }
+  ]
+}
+

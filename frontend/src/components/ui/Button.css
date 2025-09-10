@@ -1,0 +1,142 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  min-height: 44px;
+  box-sizing: border-box;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #0d7377, #14ffec);
+  color: white;
+  box-shadow: 0 4px 12px rgba(13, 115, 119, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(13, 115, 119, 0.4);
+}
+
+.btn-secondary {
+  background: rgba(13, 115, 119, 0.1);
+  color: #0d7377;
+  border: 1px solid rgba(13, 115, 119, 0.2);
+}
+
+.btn-secondary:hover {
+  background: rgba(13, 115, 119, 0.15);
+  transform: translateY(-1px);
+}
+
+.btn-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  min-height: 36px;
+}
+
+.btn-medium {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  min-height: 44px;
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  min-height: 52px;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Mobile responsive improvements */
+@media (max-width: 768px) {
+  .btn {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.9rem;
+    min-height: 48px;
+    border-radius: 10px;
+  }
+  
+  .btn-small {
+    padding: 0.625rem 1rem;
+    font-size: 0.8rem;
+    min-height: 40px;
+  }
+  
+  .btn-medium {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.9rem;
+    min-height: 48px;
+  }
+  
+  .btn-large {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    min-height: 52px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    padding: 1rem 1rem;
+    font-size: 0.85rem;
+    min-height: 48px;
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .btn-small {
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+    min-height: 44px;
+    width: auto;
+  }
+  
+  .btn-medium {
+    padding: 1rem 1rem;
+    font-size: 0.85rem;
+    min-height: 48px;
+  }
+  
+  .btn-large {
+    padding: 1.125rem 1rem;
+    font-size: 0.9rem;
+    min-height: 52px;
+  }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+  .btn {
+    min-height: 48px;
+  }
+  
+  .btn-primary:hover {
+    transform: none;
+  }
+  
+  .btn-secondary:hover {
+    transform: none;
+  }
+  
+  .btn:active {
+    transform: scale(0.95);
+  }
+  
+  .btn-small {
+    min-height: 44px;
+  }
+}
