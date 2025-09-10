@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../ui/Button';
 import Card from '../ui/Card';
 import './Quiz.css';
 
-const Quiz = ({ onNavigate }) => {
+const Quiz = () => {
+  const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState([]);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -85,7 +87,7 @@ const Quiz = ({ onNavigate }) => {
             <p><strong>3. Product Manager</strong> - 82% match</p>
           </div>
           
-          <Button onClick={() => onNavigate('recommendations')} style={{ marginTop: '2rem' }}>
+          <Button onClick={() => navigate('/recommendations')} style={{ marginTop: '2rem' }}>
             View Detailed Recommendations
           </Button>
         </div>

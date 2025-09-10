@@ -1,52 +1,74 @@
 import { useState } from 'react';
-import { Menu, Bell } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Menu, Bell, User, X } from 'lucide-react';
 import './Navbar.css';
 
-const Navbar = ({ onToggleSidebar, onToggleNotifications, notificationCount = 0 }) => {
-  const [activeSection, setActiveSection] = useState('dashboard');
-
-  const navItems = [
-    { id: 'dashboard', label: 'Dashboard' },
-    { id: 'quiz', label: 'Aptitude Test' },
-    { id: 'paths', label: 'Career Paths' },
-    { id: 'colleges', label: 'Colleges' }
-  ];
+const Navbar = ({ onToggleSidebar, onToggleNotifications, notificationCount, sidebarOpen }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <nav className="navbar">
-      <div className="logo">
-        Aagaz
+      <div className="navbar-left">
+        <button className="hamburger-menu" onClick={(e) => {
+          e.stopPropagation();
+          onToggleSidebar();
+        }}>
+          {sidebarOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+        <div className="navbar-brand" onClick={() => navigate('/')} style={{ marginLeft: '1rem' }}>
+          <img 
+            src="/logo.png" 
+            alt="Aagaz Logo" 
+            style={{
+              height: '60px',
+              width: 'auto',
+              cursor: 'pointer'
+            }}
+          />
+        </div>
       </div>
-      
-      <button className="hamburger-menu" onClick={onToggleSidebar}>
-        <Menu size={24} />
-      </button>
-      
-      <ul className="nav-links">
-        {navItems.map(item => (
-          <li key={item.id}>
-            <a 
-              href="#" 
-              className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
-              onClick={(e) => {
-                e.preventDefault();
-                setActiveSection(item.id);
-              }}
-            >
-              {item.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-      
-      <div className="user-profile">
-        <div className="notification-bell" onClick={onToggleNotifications}>
+
+      <div className="navbar-center">
+        <div className="nav-links">
+          <button 
+            className={location.pathname === '/dashboard' ? 'active' : ''} 
+            onClick={() => navigate('/dashboard')}
+          >
+            Dashboard
+          </button>
+          <button 
+            className={location.pathname === '/quiz' ? 'active' : ''} 
+            onClick={() => navigate('/quiz')}
+          >
+            Career Quiz
+          </button>
+          <button 
+            className={location.pathname === '/colleges' ? 'active' : ''} 
+            onClick={() => navigate('/colleges')}
+          >
+            Colleges
+          </button>
+          <button 
+            className={location.pathname === '/career-paths' ? 'active' : ''} 
+            onClick={() => navigate('/career-paths')}
+          >
+            Career Paths
+          </button>
+        </div>
+      </div>
+
+      <div className="navbar-right">
+        <button className="notification-bell" onClick={onToggleNotifications}>
           <Bell size={20} />
           {notificationCount > 0 && (
-            <div className="notification-badge">{notificationCount}</div>
+            <span className="notification-badge">{notificationCount}</span>
           )}
+        </button>
+        
+        <div className="user-profile">
+          <User size={20} />
         </div>
-        <div className="avatar">AK</div>
       </div>
     </nav>
   );

@@ -4,6 +4,27 @@
     box-sizing: border-box;
 }
 
+/* Force modal overlay to always be positioned correctly */
+.modal-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 999999 !important;
+}
+
+.modal-content {
+    position: relative !important;
+    margin: 0 auto !important;
+    transform: none !important;
+}
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background: #F8FFFE;
@@ -94,16 +115,16 @@ body {
     bottom: 125%;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--text-primary);
+    background: rgba(0, 0, 0, 0.8);
     color: white;
     padding: 0.5rem 1rem;
-    border-radius: 8px;
-    font-size: 0.8rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
     white-space: nowrap;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
-    z-index: 1000;
+    z-index: 10000;
 }
 
 .tooltip:hover::after {

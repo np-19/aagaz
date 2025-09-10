@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import { Search, FileText, Video, Book, Target } from 'lucide-react';
 import Card from '../ui/Card';

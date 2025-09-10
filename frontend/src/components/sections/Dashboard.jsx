@@ -1,9 +1,12 @@
 import { Brain, School, Route, Calendar } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import Card from '../ui/Card';
 import Button from '../ui/Button';
 import './Dashboard.css';
 
-const Dashboard = ({ onNavigate }) => {
+const Dashboard = () => {
+  const navigate = useNavigate();
+
   const stats = [
     { number: '15', label: 'Career Matches' },
     { number: '23', label: 'College Options' },
@@ -16,25 +19,25 @@ const Dashboard = ({ onNavigate }) => {
       icon: Brain,
       title: 'Take Aptitude Test',
       description: 'Discover your strengths and ideal career paths',
-      action: () => onNavigate('quiz')
+      action: () => navigate('/quiz')
     },
     {
       icon: School,
       title: 'Find Colleges',
       description: 'Explore nearby institutions that match your interests',
-      action: () => onNavigate('colleges')
+      action: () => navigate('/colleges')
     },
     {
       icon: Route,
       title: 'Explore Paths',
       description: 'See how your studies connect to future careers',
-      action: () => onNavigate('paths')
+      action: () => navigate('/paths')
     },
     {
       icon: Calendar,
       title: 'Plan Timeline',
       description: 'Track important dates and deadlines',
-      action: () => onNavigate('timeline')
+      action: () => navigate('/timeline')
     }
   ];
 

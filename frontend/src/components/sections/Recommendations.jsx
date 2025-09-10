@@ -1,9 +1,12 @@
 import { BookOpen, Briefcase, Target } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import Card from '../ui/Card';
 import Button from '../ui/Button';
 import './Recommendations.css';
 
-const Recommendations = ({ onNavigate }) => {
+const Recommendations = () => {
+  const navigate = useNavigate();
+
   const stats = [
     { number: '95%', label: 'Software Engineer Match' },
     { number: '12', label: 'Recommended Courses' },
@@ -81,7 +84,7 @@ const Recommendations = ({ onNavigate }) => {
               <Button 
                 variant="secondary" 
                 size="small"
-                onClick={() => onNavigate && onNavigate('colleges')}
+                onClick={() => navigate('/colleges')}
                 style={{ marginTop: '1rem' }}
               >
                 Explore More
@@ -92,12 +95,12 @@ const Recommendations = ({ onNavigate }) => {
       </div>
 
       <div className="action-buttons">
-        <Button onClick={() => onNavigate && onNavigate('colleges')}>
+        <Button onClick={() => navigate('/colleges')}>
           Explore Colleges
         </Button>
         <Button 
           variant="secondary" 
-          onClick={() => onNavigate && onNavigate('resources')}
+          onClick={() => navigate('/resources')}
         >
           Study Materials
         </Button>
