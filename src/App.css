@@ -1,0 +1,183 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f8fafc;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  transition: all 0.3s ease;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 280px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  padding-top: 100px; /* Account for fixed navbar */
+}
+
+.standalone-main {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.standalone-main .content-section {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.content-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.content-section.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.notification-panel {
+  position: fixed;
+  top: 80px;
+  right: -400px;
+  width: 380px;
+  height: calc(100vh - 80px);
+  background: white;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  transition: right 0.3s ease;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.notification-panel.open {
+  right: 0;
+}
+
+.notification-item {
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  transition: background 0.3s ease;
+}
+
+.notification-item:hover {
+  background: #f9fafb;
+}
+
+.notification-item.unread {
+  background: rgba(59, 130, 246, 0.05);
+  border-left: 3px solid #3b82f6;
+}
+
+.notification-item h4 {
+  margin: 0 0 0.5rem 0;
+  color: #1f2937;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.notification-item p {
+  margin: 0 0 0.5rem 0;
+  color: #6b7280;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.notification-item small {
+  color: #9ca3af;
+  font-size: 0.75rem;
+}
+
+/* Mobile overlay for sidebar */
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  backdrop-filter: blur(2px);
+}
+
+@media (max-width: 992px) {
+  .main-content {
+    margin-left: 0;
+    padding: 1rem;
+    padding-top: 100px;
+  }
+  
+  .notification-panel {
+    width: 100%;
+    right: -100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 0.75rem;
+    padding-top: 90px;
+  }
+  
+  .notification-panel {
+    top: 70px;
+    height: calc(100vh - 70px);
+    padding: 1.5rem;
+  }
+  
+  .notification-item {
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+  }
+  
+  .notification-item h4 {
+    font-size: 0.85rem;
+  }
+  
+  .notification-item p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 0.5rem;
+    padding-top: 80px;
+  }
+  
+  .notification-panel {
+    padding: 1rem;
+  }
+  
+  .notification-item {
+    padding: 0.5rem;
+  }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+  .notification-item {
+    min-height: 44px;
+  }
+  
+  .hamburger-menu {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  .notification-bell {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  .user-profile {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
