@@ -74,7 +74,10 @@ const Testimonials = () => {
             Back to Home
           </button>
           <div className="header-brand" onClick={() => navigate('/')}>
-            <span className="brand-text">CareerGuide</span>
+            <img 
+            src="/logo.png" 
+            alt="Agaaz Logo" 
+          />
           </div>
         </div>
       </div>

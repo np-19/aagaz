@@ -177,6 +177,7 @@
 .hero-title {
   font-size: 3.75rem;
   font-weight: 900;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   line-height: 1.05;
   color: #1f2937;
   margin: 0;
@@ -255,7 +256,14 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
 }
+
+
 
 .data-container {
   background: transparent;
@@ -269,6 +277,14 @@
   max-width: 500px;
 }
 
+.data-container:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(13, 115, 119, 0.2);
+  border-color: #0d7377; /* optional accent border */
+  background-color: #ccfbf1;
+  color:#0d7377
+}
+
 .visual-cards {
   display: flex;
   flex-direction: column;
@@ -277,6 +293,14 @@
   width: 100%;
 }
 
+.visual-cards:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: #0d7377; /* optional accent border */
+  background-color: #1f2937;
+}
+
+
 .data-cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -284,6 +308,13 @@
   margin-bottom: 1.5rem;
   align-items: stretch;
 }
+
+.data-cards-grid:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: #0d7377; /* optional accent border */
+}
+
 
 .data-card {
   background: rgba(255, 255, 255, 0.95) !important;
@@ -312,6 +343,8 @@
   transition: all 0.3s ease !important;
   flex-shrink: 0 !important;
 }
+
+
 
 .data-card.crisis .card-icon {
   background: linear-gradient(135deg, #0d7377, #0a5d61) !important;
@@ -353,7 +386,7 @@
 }
 
 .career-explorer {
-  background: linear-gradient(135deg, #0d7377, #14ffec);
+  background: linear-gradient(135deg, #4ecdc4, #b2fefa);
   border-radius: 18px;
   padding: 2rem;
   margin-top: 0.5rem;
@@ -364,13 +397,14 @@
 .career-explorer:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 40px rgba(13, 115, 119, 0.4);
+  background-color: #1f2937;
 }
 
 .explorer-content {
   display: flex;
   align-items: center;
   gap: 1.25rem;
-  color: white;
+  color: black;
 }
 
 .explorer-icon {

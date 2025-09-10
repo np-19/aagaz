@@ -55,7 +55,11 @@ const Features = () => {
             Back to Home
           </button>
           <div className="header-brand" onClick={() => navigate('/')}>
-            <span className="brand-text">CareerGuide</span>
+          <img 
+            src="/logo.png" 
+            alt="Agaaz Logo" 
+          />
+
           </div>
         </div>
       </div>
@@ -65,7 +69,7 @@ const Features = () => {
         <div className="section-container">
           <div className="section-header">
             <h1>Platform Features</h1>
-            <p>Discover how CareerGuide empowers students in Jammu & Kashmir to make informed career decisions and achieve their professional goals.</p>
+            <p>Discover how Agaaz empowers students in Jammu & Kashmir to make informed career decisions and achieve their professional goals.</p>
           </div>
         </div>
       </section>

@@ -1,6 +1,4 @@
 .features-page {
-  width: 100%;
-  min-height: 100vh;
   background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
@@ -10,18 +8,14 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 80px;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  z-index: 1000;
+
 }
 
 .header-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  height: 100%;
+  
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -48,9 +42,10 @@
   transform: translateX(-2px);
 }
 
-.header-brand {
+.header-brand img{
   cursor: pointer;
-  transition: all 0.3s ease;
+  height: 50px;
+  width: auto;
 }
 
 .header-brand:hover {
@@ -69,8 +64,9 @@
 
 .features-hero {
   padding: 10rem 0 4rem;
-  background: linear-gradient(135deg, #0d7377, #14ffec);
-  color: white;
+ background: linear-gradient(135deg, #0f172a, #0d9488);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: rgb(155, 155, 155);
   text-align: center;
 }
 
@@ -99,6 +95,7 @@
   background: rgba(249, 250, 251, 0.5);
 }
 
+
 .features-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -106,7 +103,7 @@
 }
 
 .feature-card {
-  background: rgba(255, 255, 255, 0.9);
+  background: #ffffff;
   border-radius: 16px;
   padding: 2.5rem;
   text-align: center;
@@ -117,7 +114,9 @@
 
 .feature-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px rgba(3, 188, 77, 0.887);
+  border-color: #0d7377; /* teal border */
+  background: rgba(67, 42, 121, 0.393)
 }
 
 .feature-icon {
@@ -129,18 +128,18 @@
   align-items: center;
   justify-content: center;
   margin: 0 auto 1.5rem;
-  color: white;
+  color: #374151;
 }
 
 .feature-card h3 {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #1f2937;
+  color: #2563eb;
   margin-bottom: 1rem;
 }
 
 .feature-card p {
-  color: #64748b;
+  color: #374151;
   line-height: 1.6;
   margin: 0;
 }
@@ -166,12 +165,12 @@
 .detail-item h3 {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #1f2937;
+  color: #6b7280;
   margin-bottom: 1rem;
 }
 
 .detail-item p {
-  color: #64748b;
+  color: #0b3d82;
   line-height: 1.6;
   margin: 0;
 }

@@ -69,8 +69,9 @@
 
 .testimonials-hero {
   padding: 10rem 0 4rem;
-  background: linear-gradient(135deg, #0d7377, #14ffec);
-  color: white;
+   background: linear-gradient(135deg, #0f172a, #0d9488);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: rgb(155, 155, 155);
   text-align: center;
 }
 
@@ -115,8 +116,11 @@
 }
 
 .testimonial-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(13, 115, 119, 0.2);
+  border-color: #0d7377; /* optional accent border */
+  background-color: #ccfbf1;
+  color:#0d7377
 }
 
 .testimonial-rating {
@@ -197,9 +201,13 @@
 }
 
 .stat-card:hover {
-  transform: translateY(-4px);
-  background: rgba(13, 115, 119, 0.1);
-}
+  
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(13, 115, 119, 0.2);
+  border-color: #0d7377; /* optional accent border */
+  background-color: #ccfbf1;
+  color:#0d7377
+};
 
 .stat-card h3 {
   font-size: 2.5rem;
