@@ -1,0 +1,43 @@
+.recommendations-section {
+    width: 100%;
+}
+
+.recommendations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.recommendation-details {
+    margin: 1rem 0;
+    text-align: left;
+}
+
+.detail-item {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #323232;
+}
+
+.detail-item strong {
+    color: #0D7377;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .recommendations-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
