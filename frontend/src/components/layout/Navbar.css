@@ -1,0 +1,142 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #FFFFFF;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(13, 115, 119, 0.1);
+    z-index: 1000;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #212121;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #323232;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #0D7377;
+    background: rgba(20, 255, 236, 0.05);
+    transform: translateY(-2px);
+}
+
+.hamburger-menu {
+    display: none;
+    background: none;
+    border: none;
+    color: #212121;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu:hover {
+    background: rgba(20, 255, 236, 0.05);
+}
+
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navbar-button {
+    background: none;
+    border: none;
+    color: #323232;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.navbar-button:hover {
+    background: rgba(20, 255, 236, 0.05);
+    color: #0D7377;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0D7377, #14FFEC);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.user-avatar:hover {
+    transform: scale(1.1);
+}
+
+.notification-bell {
+    position: relative;
+    cursor: pointer;
+    color: #323232;
+    transition: color 0.3s ease;
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+.notification-bell:hover {
+    color: #0D7377;
+    background: rgba(13, 115, 119, 0.1);
+}
+
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #14FFEC;
+    color: #0D7377;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    animation: pulse 2s infinite;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+    .nav-links {
+        display: none;
+    }
+    .hamburger-menu {
+        display: block;
+    }
+}

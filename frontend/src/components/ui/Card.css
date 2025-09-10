@@ -1,0 +1,46 @@
+.card {
+    background: #FFFFFF;
+    border: 1px solid rgba(13, 115, 119, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(13, 115, 119, 0.15);
+    left: 100%;
+}
+
+.card-action {
+    text-align: center;
+}
+
+.card-stat {
+    text-align: center;
+}
+
+.card-stat:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(13, 115, 119, 0.1);
+}
+
+.card-college {
+    padding: 0;
+    overflow: hidden;
+}
+
+.card-college:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(13, 115, 119, 0.15);
+}
+
+.card-resource {
+    cursor: pointer;
+}
+
+.card-resource:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(13, 115, 119, 0.15);
+}

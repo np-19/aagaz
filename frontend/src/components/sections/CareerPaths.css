@@ -1,0 +1,84 @@
+.career-paths-section {
+    width: 100%;
+}
+
+.path-explorer {
+    position: relative;
+    min-height: 500px;
+    background: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2rem;
+    overflow: hidden;
+}
+
+.path-node {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: var(--card-background);
+    border: 3px solid var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 1rem;
+    color: var(--text-primary);
+}
+
+.path-node:hover {
+    transform: scale(1.1);
+    border-color: var(--secondary-color);
+    box-shadow: var(--shadow);
+}
+
+.path-connection {
+    position: absolute;
+    height: 3px;
+    background: var(--gradient);
+    transform-origin: left;
+}
+
+.node-modal-content {
+    text-align: center;
+}
+
+.node-modal-content h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.node-modal-content p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+    .path-explorer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: static;
+        min-height: auto;
+        gap: 2rem;
+        padding: 1rem;
+    }
+    
+    .path-node {
+        position: static;
+        width: 90%;
+        max-width: 300px;
+        height: auto;
+        min-height: 80px;
+        padding: 1rem;
+    }
+    
+    .path-connection {
+        display: none;
+    }
+}
