@@ -5,15 +5,24 @@ import Sidebar from './Sidebar';
 
 const MainLayout = () => {
   const location = useLocation();
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const [notificationCount, setNotificationCount] = useState(3);
   const [isMobile, setIsMobile] = useState(false);
+  // Handle sidebar state on screen size change only
+  useEffect(() => {
+    // Only set initial state based on screen size, don't close on navigation
+    if (isMobile) {
+      setSidebarOpen(false);
+    } else {
+      setSidebarOpen(true);
+    }
+  }, [isMobile]);
 
   // Check if device is mobile
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth <= 992);
     };
     
     checkMobile();
@@ -56,12 +65,6 @@ const MainLayout = () => {
     };
   }, [sidebarOpen, notificationsOpen, isMobile]);
 
-  // Close sidebar on route change for mobile
-  useEffect(() => {
-    if (isMobile) {
-      setSidebarOpen(false);
-    }
-  }, [location.pathname, isMobile]);
 
   // Prevent body scroll when sidebar is open on mobile
   useEffect(() => {
@@ -86,8 +89,6 @@ const MainLayout = () => {
             onToggleSidebar={toggleSidebar}
             onToggleNotifications={toggleNotifications}
             notificationCount={notificationCount}
-            sidebarOpen={sidebarOpen}
-            isMobile={isMobile}
           />
           <Sidebar
             isOpen={sidebarOpen}
@@ -105,7 +106,7 @@ const MainLayout = () => {
         />
       )}
 
-      <main className={isStandalonePage ? 'standalone-main' : 'main-content'}>
+      <main className={isStandalonePage ? 'standalone-main' : `main-content ${!sidebarOpen ? 'sidebar-closed' : ''}`}>
         <div className="content-section active">
           <Outlet />
         </div>

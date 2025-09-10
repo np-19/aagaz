@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import "./App.css"
 import MainLayout from './components/layout/MainLayout';
 import Landing from './components/sections/Landing';
 import Features from './components/sections/Features';
@@ -12,7 +13,6 @@ import Recommendations from './components/sections/Recommendations';
 import Resources from './components/sections/Resources';
 import Settings from './components/sections/Settings';
 import './styles/globals.css';
-import './App.css';
 
 function App() {
   return (

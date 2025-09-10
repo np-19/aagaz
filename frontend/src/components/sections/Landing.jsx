@@ -158,7 +158,7 @@ const Landing = () => {
                   return (
                     <div key={index} className={`data-card ${item.type}`}>
                       <div className="card-icon">
-                        <IconComponent size={18} />
+                        <IconComponent size={14} />
                       </div>
                       <div className="card-content">
                         <h4>{item.title}</h4>

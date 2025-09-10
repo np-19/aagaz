@@ -3,9 +3,16 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { Menu, Bell, User, X } from 'lucide-react';
 import './Navbar.css';
 
-const Navbar = ({ onToggleSidebar, onToggleNotifications, notificationCount, sidebarOpen }) => {
+const Navbar = ({ onToggleSidebar, onToggleNotifications, notificationCount, sidebarOpen, isMobile }) => {
   const navigate = useNavigate();
   const location = useLocation();
+
+  const handleNavigation = (path) => {
+    navigate(path);
+    // Auto-scroll to top
+    window.scrollTo(0, 0);
+    // Don't close sidebar from navbar - let MainLayout handle it
+  };
 
   return (
     <nav className="navbar">
@@ -33,25 +40,25 @@ const Navbar = ({ onToggleSidebar, onToggleNotifications, notificationCount, sid
         <div className="nav-links">
           <button 
             className={location.pathname === '/dashboard' ? 'active' : ''} 
-            onClick={() => navigate('/dashboard')}
+            onClick={() => handleNavigation('/dashboard')}
           >
             Dashboard
           </button>
           <button 
             className={location.pathname === '/quiz' ? 'active' : ''} 
-            onClick={() => navigate('/quiz')}
+            onClick={() => handleNavigation('/quiz')}
           >
             Career Quiz
           </button>
           <button 
             className={location.pathname === '/colleges' ? 'active' : ''} 
-            onClick={() => navigate('/colleges')}
+            onClick={() => handleNavigation('/colleges')}
           >
             Colleges
           </button>
           <button 
             className={location.pathname === '/career-paths' ? 'active' : ''} 
-            onClick={() => navigate('/career-paths')}
+            onClick={() => handleNavigation('/career-paths')}
           >
             Career Paths
           </button>
@@ -66,7 +73,7 @@ const Navbar = ({ onToggleSidebar, onToggleNotifications, notificationCount, sid
           )}
         </button>
         
-        <div className="user-profile">
+        <div className="user-profile" onClick={() => handleNavigation('/settings')}>
           <User size={20} />
         </div>
       </div>

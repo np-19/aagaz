@@ -29,7 +29,12 @@ const Sidebar = ({ isOpen, onSectionChange }) => {
 
   const handleNavigation = (path) => {
     navigate(path);
-    if (onSectionChange) onSectionChange();
+    // Scroll to top of page
+    window.scrollTo(0, 0);
+    // Only close sidebar on mobile/smaller screens (width < 992px)
+    if (onSectionChange && window.innerWidth < 992) {
+      onSectionChange();
+    }
   };
 
   if (!isOpen) return null;
@@ -67,17 +72,27 @@ const Sidebar = ({ isOpen, onSectionChange }) => {
         justifyContent: 'space-between',
         backgroundColor: '#f8fafc'
       }}>
-        <div style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.75rem',
-          marginLeft: '1rem'
-        }}>
+        <div 
+          onClick={() => navigate('/')}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            cursor: 'pointer',
+            transition: 'all 0.2s ease'
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.transform = 'scale(1.05)';
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.transform = 'scale(1)';
+          }}
+        >
           <img 
             src="/logo.png" 
             alt="Aagaz Logo" 
             style={{
-              height: '70px',
+              height: '50px',
               width: 'auto'
             }}
           />
@@ -129,7 +144,11 @@ const Sidebar = ({ isOpen, onSectionChange }) => {
           return (
             <button
               key={item.id}
-              onClick={() => handleNavigation(item.path)}
+              onClick={() => {
+                navigate(item.path);
+                window.scrollTo(0, 0);
+                onSectionChange(item.id);
+              }}
               style={{
                 display: 'flex',
                 alignItems: 'center',

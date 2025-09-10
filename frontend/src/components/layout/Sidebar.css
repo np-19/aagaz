@@ -7,7 +7,7 @@
   background: #ff0000 !important;
   backdrop-filter: blur(10px);
   border-right: 1px solid rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, left 0.3s ease;
   z-index: 999;
   overflow-y: auto;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
