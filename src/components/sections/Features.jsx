@@ -55,7 +55,11 @@ const Features = () => {
             Back to Home
           </button>
           <div className="header-brand" onClick={() => navigate('/')}>
-            <span className="brand-text">CareerGuide</span>
+          <img 
+            src="/logo.png" 
+            alt="Agaaz Logo" 
+            className="h-10 w-auto object-contain"
+          />
           </div>
         </div>
       </div>
