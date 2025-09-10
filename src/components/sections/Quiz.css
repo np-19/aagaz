@@ -1,0 +1,136 @@
+.quiz-section {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.quiz-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.quiz-progress {
+    background: rgba(13, 115, 119, 0.1);
+    height: 8px;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.quiz-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #0D7377, #14FFEC);
+    border-radius: 4px;
+    transition: width 0.5s ease;
+}
+
+.quiz-card {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 3rem;
+}
+
+.quiz-question {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: #212121;
+}
+
+.quiz-options {
+    display: grid;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.quiz-option {
+    padding: 1rem 1.5rem;
+    border: 2px solid rgba(13, 115, 119, 0.2);
+    border-radius: 12px;
+    background: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    color: #212121;
+}
+
+.quiz-option:hover {
+    border-color: #14FFEC;
+    background: rgba(20, 255, 236, 0.05);
+    transform: translateY(-2px);
+}
+
+.quiz-option.selected {
+    border-color: #0D7377;
+    background: rgba(13, 115, 119, 0.1);
+    color: #0D7377;
+}
+
+.results-container {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.results-chart {
+    width: 300px;
+    height: 300px;
+    margin: 2rem auto;
+    position: relative;
+}
+
+.chart-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(
+        #0D7377 0deg 108deg,
+        #14FFEC 108deg 180deg,
+        #323232 180deg 252deg,
+        rgba(13, 115, 119, 0.3) 252deg 360deg
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.chart-center {
+    width: 80%;
+    height: 80%;
+    background: #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-weight: 600;
+}
+
+.section-header {
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #212121;
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    color: #323232;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .quiz-card {
+        padding: 1.5rem;
+    }
+    .quiz-question {
+        font-size: 1.2rem;
+    }
+    .section-title {
+        font-size: 1.6rem;
+    }
+}
