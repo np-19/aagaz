@@ -1,4 +1,4 @@
-# Aagaz - Career Guidance Platform
+# Agaaz - Career Guidance Platform
 
 A comprehensive career guidance platform designed specifically for students in Jammu & Kashmir, featuring AI-powered career assessments, personalized recommendations, and college information.
 
@@ -23,7 +23,7 @@ A comprehensive career guidance platform designed specifically for students in J
 ## 🏗️ Project Structure
 
 ```
-aagaz/
+agaaz/
 ├── frontend/                 # React frontend application
 │   ├── src/
 │   │   ├── components/      # React components
@@ -58,7 +58,7 @@ aagaz/
 ### 1. Clone the Repository
 ```bash
 git clone <repository-url>
-cd aagaz
+cd agaaz
 ```
 
 ### 2. Start the Backend
@@ -215,4 +215,4 @@ For support and questions, please contact the development team or create an issu
 
 ---
 
-**Aagaz** - Empowering students to make informed career decisions and build successful futures! 🚀
+**Agaaz** - Empowering students to make informed career decisions and build successful futures! 🚀
