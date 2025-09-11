@@ -297,7 +297,7 @@ const Quiz = () => {
     <div className="quiz-section">
       <div className="section-header">
         <h1 className="section-title">{quizData.title}</h1>
-        <p className="section-subtitle">{quizData.description}</p>
+        {/* <p className="section-subtitle">{quizData.description}</p> */}
         
         <div className="grade-selector">
           <label>Select your level:</label>
@@ -318,24 +318,6 @@ const Quiz = () => {
           >
             Refresh Quiz
           </Button>
-          <Button 
-            onClick={async () => {
-              try {
-                const response = await fetch('http://localhost:5001/api/quiz/12thq');
-                const data = await response.json();
-                console.log('Direct API test:', data);
-                alert(`API Test: ${data.success ? 'Success' : 'Failed'} - ${data.data?.questions?.length || 0} questions`);
-              } catch (error) {
-                console.error('Direct API test failed:', error);
-                alert('API Test Failed: ' + error.message);
-              }
-            }} 
-            size="small" 
-            variant="secondary"
-            style={{ marginLeft: '0.5rem' }}
-          >
-            Test API
-          </Button>
         </div>
       </div>
 
@@ -347,10 +329,6 @@ const Quiz = () => {
           </span>
         </div>
         
-        {/* Debug info - remove in production */}
-        <div style={{ fontSize: '0.8rem', color: '#666', textAlign: 'center', marginBottom: '1rem' }}>
-          Loaded {quizData.questions.length} questions for {grade} grade
-        </div>
 
         <Card className="quiz-card">
           <h2 className="quiz-question">

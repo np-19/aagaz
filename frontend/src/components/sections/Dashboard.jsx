@@ -183,9 +183,6 @@ const Dashboard = () => {
                 style={{ width: `25%` }}
               ></div>
             </div>
-            <div className="progress-text">
-              25% Complete - Keep exploring to unlock more insights!
-            </div>
             {dashboardData?.lastQuizDate && (
               <div className="last-activity">
                 <Clock size={16} />

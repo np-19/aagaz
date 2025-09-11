@@ -96,7 +96,6 @@ const Resources = () => {
     <div className="resources-section">
       <div className="section-header">
         <h1 className="section-title">Study Materials & Resources</h1>
-        <p className="section-subtitle">Curated content to support your learning journey</p>
       </div>
 
       <div className="search-container">

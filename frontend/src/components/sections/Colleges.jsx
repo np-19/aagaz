@@ -19,19 +19,6 @@ const Colleges = () => {
     loadColleges();
   }, []);
 
-  // Test API connectivity
-  useEffect(() => {
-    const testAPI = async () => {
-      try {
-        const response = await fetch('http://localhost:5001/api/health');
-        console.log('Backend health check:', response.status);
-      } catch (error) {
-        console.error('Backend not accessible:', error);
-      }
-    };
-    testAPI();
-  }, []);
-
   useEffect(() => {
     filterColleges();
   }, [colleges, searchTerm, activeFilter]);
@@ -39,14 +26,10 @@ const Colleges = () => {
   const loadColleges = async () => {
     try {
       setLoading(true);
-      console.log('Loading colleges from API...');
       const response = await collegeAPI.getAll();
-      console.log('API Response:', response);
-      console.log('Colleges data:', response.data.colleges);
       setColleges(response.data.colleges || []);
     } catch (error) {
       console.error('Error loading colleges:', error);
-      console.log('Using fallback mock data');
       // Fallback to mock data
       const mockData = [
         {
@@ -85,7 +68,7 @@ const Colleges = () => {
           programCount: 3
         }
       ];
-      console.log('Setting mock data:', mockData);
+
       setColleges(mockData);
     } finally {
       setLoading(false);
@@ -93,9 +76,7 @@ const Colleges = () => {
   };
 
   const filterColleges = () => {
-    console.log('Filtering colleges. Total colleges:', colleges.length);
-    console.log('Search term:', searchTerm);
-    console.log('Active filter:', activeFilter);
+
     
     let filtered = [...colleges];
     
@@ -125,8 +106,7 @@ const Colleges = () => {
       }
     }
     
-    console.log('Filtered colleges:', filtered.length);
-    console.log('Filtered data:', filtered);
+
     setFilteredColleges(filtered);
   };
 
@@ -155,11 +135,11 @@ const Colleges = () => {
   const getCollegeColor = (type) => {
     switch (type) {
       case 'JK':
-        return '#10B981';
+        return 'rgba(16, 185, 129, 0.9)';
       case 'National':
-        return '#3B82F6';
+        return 'rgba(59, 130, 246, 0.9)';
       default:
-        return '#6B7280';
+        return 'rgba(107, 114, 128, 0.9)';
     }
   };
 
@@ -223,19 +203,56 @@ const Colleges = () => {
 
       {/* Colleges Grid */}
       <div className="colleges-grid">
-        {console.log('Rendering colleges grid. Filtered colleges:', filteredColleges)}
         {filteredColleges.map((college, index) => {
-          console.log('Rendering college:', college.name, 'at index:', index);
           
           try {
             const IconComponent = getCollegeIcon(college.type);
             const color = getCollegeColor(college.type);
             
             return (
-              <div key={index} style={{border: '2px solid red', padding: '10px', margin: '10px'}}>
-                <h3>TEST: {college.name}</h3>
-                <p>Type: {college.type}</p>
-                <p>Programs: {college.programs ? college.programs.length : 'No programs'}</p>
+              <div key={index} className="college-card">
+                <div className="college-header">
+                  <div className="college-icon" style={{ background: color }}>
+                    <IconComponent size={24} />
+                  </div>
+                  <div className="college-title-section">
+                    <h3>{college.name}</h3>
+                    <div className="college-meta">
+                      <span className={`college-type ${college.type.toLowerCase()}`}>
+                        {college.type === 'JK' ? 'J&K College' : 'National College'}
+                      </span>
+                      <span className="program-count">
+                        {college.programCount || college.programs.length} Programs
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div className="college-details">
+                  <div className="college-clusters">
+                    <strong>Fields of Study</strong>
+                    <div className="cluster-tags">
+                      {college.clusters.map((cluster, idx) => (
+                        <span key={idx} className="cluster-tag">{cluster}</span>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="college-programs">
+                    <strong>Available Programs</strong>
+                    <div className="programs-list">
+                      {college.programs.slice(0, 3).map((program, idx) => (
+                        <span key={idx} className="program-tag">{program}</span>
+                      ))}
+                      {college.programs.length > 3 && (
+                        <span className="program-tag more">+{college.programs.length - 3} more</span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+                <div className="college-actions">
+                  <button onClick={() => handleCollegeClick(college)}>
+                    View Details
+                  </button>
+                </div>
               </div>
             );
           } catch (error) {
@@ -250,18 +267,11 @@ const Colleges = () => {
           <GraduationCap size={48} />
           <h3>No colleges found</h3>
           <p>Try adjusting your search or filter criteria</p>
-          {console.log('Showing no results. Loading:', loading, 'Filtered length:', filteredColleges.length)}
+
         </div>
       )}
 
-      {/* Debug info */}
-      <div style={{position: 'fixed', top: '10px', right: '10px', background: 'white', padding: '10px', border: '1px solid #ccc', fontSize: '12px', zIndex: 9999}}>
-        <div>Loading: {loading.toString()}</div>
-        <div>Total colleges: {colleges.length}</div>
-        <div>Filtered colleges: {filteredColleges.length}</div>
-        <div>Search term: "{searchTerm}"</div>
-        <div>Active filter: {activeFilter}</div>
-      </div>
+
 
       {/* College Details Modal */}
       <Modal

@@ -5,10 +5,10 @@ import Features from './components/sections/Features';
 import Testimonials from './components/sections/Testimonials';
 import Dashboard from './components/sections/Dashboard';
 import Quiz from './components/sections/Quiz';
-import Colleges from './components/sections/Colleges';
-import CareerPaths from './components/sections/CareerPaths';
+import CollegesNew from './components/sections/CollegesNew';
+import CareerPathsNew from './components/sections/CareerPathsNew';
 import Timeline from './components/sections/Timeline';
-import Recommendations from './components/sections/Recommendations';
+import RecommendationsNew from './components/sections/RecommendationsNew';
 import Resources from './components/sections/Resources';
 import Settings from './components/sections/Settings';
 import SignInPage from './components/auth/SignIn';
@@ -37,10 +37,10 @@ function App() {
       }>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/quiz" element={<Quiz />} />
-        <Route path="/colleges" element={<Colleges />} />
-        <Route path="/career-paths" element={<CareerPaths />} />
+        <Route path="/colleges" element={<CollegesNew />} />
+        <Route path="/career-paths" element={<CareerPathsNew />} />
         <Route path="/timeline" element={<Timeline />} />
-        <Route path="/recommendations" element={<Recommendations />} />
+        <Route path="/recommendations" element={<RecommendationsNew />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/settings" element={<Settings />} />
       </Route>

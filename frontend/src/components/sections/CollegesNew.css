@@ -1,0 +1,317 @@
+:root {
+  --primary-color: #3b82f6;
+  --primary-color-light: #60a5fa;
+  --primary-color-dark: #2563eb;
+  --secondary-color: #f3f4f6;
+  --text-color-primary: #1f2937;
+  --text-color-secondary: #4b5563;
+  --card-bg: #ffffff;
+  --card-border: #e5e7eb;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.colleges-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.colleges-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.header-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.header-content p {
+  font-size: 1.125rem;
+  color: var(--text-color-secondary);
+}
+
+.search-section {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--card-bg);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--card-border);
+}
+
+.search-icon {
+  color: var(--text-color-secondary);
+}
+
+.search-bar input {
+  flex: 1;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  color: var(--text-color-primary);
+}
+
+.search-bar input::placeholder {
+  color: var(--text-color-secondary);
+}
+
+.category-tabs {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.category-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid transparent;
+}
+
+.category-tab:hover {
+  background-color: var(--secondary-color);
+}
+
+.category-tab.active {
+  background-color: var(--primary-color-light);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+.colleges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.college-card {
+  background-color: var(--card-bg);
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--card-border);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease-in-out;
+}
+
+.college-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.college-header {
+  margin-bottom: 1rem;
+}
+
+.college-type-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.college-type-badge[data-type="jk"] {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.college-type-badge[data-type="national"] {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.college-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-color-primary);
+  margin-bottom: 0.25rem;
+}
+
+.college-location {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--text-color-secondary);
+  font-size: 0.875rem;
+}
+
+.college-info {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-color-secondary);
+  font-size: 0.875rem;
+}
+
+.college-highlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--card-border);
+}
+
+.highlight {
+  font-size: 0.875rem;
+}
+
+.highlight strong {
+  color: var(--text-color-primary);
+  font-weight: 500;
+}
+
+.achievements-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.achievement-badge {
+  background-color: var(--secondary-color);
+  color: var(--text-color-secondary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+}
+
+.view-details-btn {
+  margin-top: auto;
+}
+
+/* Modal Styles */
+.college-details-modal {
+  padding: 1rem;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.modal-header h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--text-color-primary);
+}
+
+.modal-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.modal-section h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-color-primary);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.overview-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.overview-item svg {
+  color: var(--primary-color);
+}
+
+.overview-item strong {
+  font-weight: 500;
+}
+
+.programs-grid, .facilities-grid, .achievements-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.program-card, .facility-item, .achievement-item {
+  background-color: var(--secondary-color);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.admission-info {
+  display: flex;
+  gap: 2rem;
+}
+
+.modal-actions {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--card-border);
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.loading-state, .no-results {
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color-secondary);
+}
+
+.loading-state h2, .no-results h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.animate-pulse {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}

@@ -118,7 +118,6 @@ const Recommendations = () => {
       <div className="recommendations-section">
         <div className="section-header">
           <h1 className="section-title">Loading Recommendations...</h1>
-          <p className="section-subtitle">Analyzing your profile and preferences</p>
         </div>
         <div className="loading-spinner">
           <div className="spinner"></div>
@@ -168,49 +167,77 @@ const Recommendations = () => {
           <h2 className="section-subtitle">Your Top Career Matches</h2>
           <div className="career-recommendations-grid">
             {personalizedRecs.recommendations.slice(0, 6).map((career, index) => (
-              <Card key={index} variant="action" hover className="career-card">
+              <div key={index} className="career-card">
                 <div className="career-header">
                   <div className="career-title">
-                    <Briefcase size={18} />
-                    <h3>{career.title}</h3>
+                    <div className="career-icon">
+                      <Briefcase />
+                    </div>
+                    <div className="career-title-text">
+                      <h3>{career.title}</h3>
+                    </div>
                   </div>
                   <div className="match-score">
+                    <Target size={16} />
                     {career.matchPercentage || career.matchScore || 85}%
                   </div>
                 </div>
                 <div className="career-details">
                   <div className="career-field">
-                    <span className="field-tag">{career.cluster}</span>
+                    <div className="field-tag">
+                      <BookOpen size={16} />
+                      {career.cluster}
+                    </div>
                   </div>
                   {career.skills_required && (
                     <div className="skills-section">
+                      <div className="skills-section-header">Required Skills</div>
                       <div className="skills-tags">
-                        {career.skills_required.slice(0, 2).map((skill, idx) => (
+                        {career.skills_required.slice(0, 3).map((skill, idx) => (
                           <span key={idx} className="skill-tag">{skill}</span>
                         ))}
-                        {career.skills_required.length > 2 && (
-                          <span className="skill-tag more">+{career.skills_required.length - 2}</span>
+                        {career.skills_required.length > 3 && (
+                          <span className="skill-tag more">+{career.skills_required.length - 3} more</span>
                         )}
                       </div>
                     </div>
                   )}
                   {career.jk_colleges && career.jk_colleges.length > 0 && (
                     <div className="colleges-section">
-                      <div className="colleges-count">
-                        📍 {career.jk_colleges.length} JK College{career.jk_colleges.length !== 1 ? 's' : ''}
+                      <div className="skills-section-header">Available Colleges</div>
+                      <div className="colleges-info">
+                        <div className="colleges-count">
+                          <MapPin size={16} />
+                          {career.jk_colleges.length} J&K Colleges
+                        </div>
+                        <div className="colleges-list">
+                          {career.jk_colleges.slice(0, 2).map((college, idx) => (
+                            <span 
+                              key={idx} 
+                              className="college-tag"
+                              onClick={() => handleExploreColleges(college)}
+                            >
+                              <GraduationCap size={16} />
+                              {college}
+                            </span>
+                          ))}
+                          {career.jk_colleges.length > 2 && (
+                            <span className="college-tag more">
+                              +{career.jk_colleges.length - 2} more
+                            </span>
+                          )}
+                        </div>
                       </div>
                     </div>
                   )}
                 </div>
-                <Button 
-                  variant="secondary" 
-                  size="small"
-                  onClick={() => handleExploreCareer(career.title)}
-                  className="explore-btn"
-                >
-                  Explore
-                </Button>
-              </Card>
+                <div className="career-actions">
+                  <button onClick={() => handleExploreCareer(career.title)}>
+                    <TrendingUp size={20} />
+                    Explore Career Path
+                  </button>
+                </div>
+              </div>
             ))}
           </div>
         </div>

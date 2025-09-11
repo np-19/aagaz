@@ -35,7 +35,6 @@ const Settings = () => {
     <div className="settings-section">
       <div className="section-header">
         <h1 className="section-title">Account Settings</h1>
-        <p className="section-subtitle">Customize your profile and preferences</p>
       </div>
 
       <div className="settings-grid">
