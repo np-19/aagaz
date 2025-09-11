@@ -104,7 +104,7 @@ const Landing = () => {
           <div className="hero-left">
             <h1 className="hero-title">
               Your One-Stop<br />
-              <span className="highlight">Career & Education</span><br />
+              Career & Education<br />
               Guide
             </h1>
             
