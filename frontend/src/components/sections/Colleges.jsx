@@ -19,6 +19,19 @@ const Colleges = () => {
     loadColleges();
   }, []);
 
+  // Test API connectivity
+  useEffect(() => {
+    const testAPI = async () => {
+      try {
+        const response = await fetch('http://localhost:5001/api/health');
+        console.log('Backend health check:', response.status);
+      } catch (error) {
+        console.error('Backend not accessible:', error);
+      }
+    };
+    testAPI();
+  }, []);
+
   useEffect(() => {
     filterColleges();
   }, [colleges, searchTerm, activeFilter]);
@@ -26,12 +39,16 @@ const Colleges = () => {
   const loadColleges = async () => {
     try {
       setLoading(true);
+      console.log('Loading colleges from API...');
       const response = await collegeAPI.getAll();
+      console.log('API Response:', response);
+      console.log('Colleges data:', response.data.colleges);
       setColleges(response.data.colleges || []);
     } catch (error) {
       console.error('Error loading colleges:', error);
+      console.log('Using fallback mock data');
       // Fallback to mock data
-      setColleges([
+      const mockData = [
         {
           name: 'IIT Jammu',
           type: 'JK',
@@ -67,13 +84,19 @@ const Colleges = () => {
           clusters: ['Engineering & Technology'],
           programCount: 3
         }
-      ]);
+      ];
+      console.log('Setting mock data:', mockData);
+      setColleges(mockData);
     } finally {
       setLoading(false);
     }
   };
 
   const filterColleges = () => {
+    console.log('Filtering colleges. Total colleges:', colleges.length);
+    console.log('Search term:', searchTerm);
+    console.log('Active filter:', activeFilter);
+    
     let filtered = [...colleges];
     
     if (searchTerm) {
@@ -102,6 +125,8 @@ const Colleges = () => {
       }
     }
     
+    console.log('Filtered colleges:', filtered.length);
+    console.log('Filtered data:', filtered);
     setFilteredColleges(filtered);
   };
 
@@ -198,64 +223,25 @@ const Colleges = () => {
 
       {/* Colleges Grid */}
       <div className="colleges-grid">
+        {console.log('Rendering colleges grid. Filtered colleges:', filteredColleges)}
         {filteredColleges.map((college, index) => {
-          const IconComponent = getCollegeIcon(college.type);
-          const color = getCollegeColor(college.type);
+          console.log('Rendering college:', college.name, 'at index:', index);
           
-          return (
-            <Card 
-              key={index} 
-              className="college-card" 
-              hover
-              onClick={() => handleCollegeClick(college)}
-            >
-              <div className="college-header">
-                <div className="college-icon" style={{ backgroundColor: color }}>
-                  <IconComponent size={24} />
-                </div>
-                <div className="college-title-section">
-                  <h3>{college.name}</h3>
-                  <div className="college-meta">
-                    <span className={`college-type ${college.type.toLowerCase()}`}>
-                      {college.type === 'JK' ? 'J&K College' : 'National College'}
-                    </span>
-                    <span className="program-count">
-                      {college.programCount} programs
-                    </span>
-                  </div>
-                </div>
+          try {
+            const IconComponent = getCollegeIcon(college.type);
+            const color = getCollegeColor(college.type);
+            
+            return (
+              <div key={index} style={{border: '2px solid red', padding: '10px', margin: '10px'}}>
+                <h3>TEST: {college.name}</h3>
+                <p>Type: {college.type}</p>
+                <p>Programs: {college.programs ? college.programs.length : 'No programs'}</p>
               </div>
-              
-              <div className="college-details">
-                <div className="college-clusters">
-                  <strong>Fields:</strong>
-                  <div className="cluster-tags">
-                    {college.clusters.map((cluster, idx) => (
-                      <span key={idx} className="cluster-tag">{cluster}</span>
-                    ))}
-                  </div>
-                </div>
-                
-                <div className="college-programs">
-                  <strong>Programs:</strong>
-                  <div className="programs-list">
-                    {college.programs.slice(0, 3).map((program, idx) => (
-                      <span key={idx} className="program-tag">{program}</span>
-                    ))}
-                    {college.programs.length > 3 && (
-                      <span className="program-tag more">+{college.programs.length - 3} more</span>
-                    )}
-                  </div>
-                </div>
-              </div>
-              
-              <div className="college-actions">
-                <Button size="small" variant="secondary">
-                  View Details
-                </Button>
-              </div>
-            </Card>
-          );
+            );
+          } catch (error) {
+            console.error('Error rendering college:', college.name, error);
+            return <div key={index}>Error rendering {college.name}</div>;
+          }
         })}
       </div>
 
@@ -264,8 +250,18 @@ const Colleges = () => {
           <GraduationCap size={48} />
           <h3>No colleges found</h3>
           <p>Try adjusting your search or filter criteria</p>
+          {console.log('Showing no results. Loading:', loading, 'Filtered length:', filteredColleges.length)}
         </div>
       )}
+
+      {/* Debug info */}
+      <div style={{position: 'fixed', top: '10px', right: '10px', background: 'white', padding: '10px', border: '1px solid #ccc', fontSize: '12px', zIndex: 9999}}>
+        <div>Loading: {loading.toString()}</div>
+        <div>Total colleges: {colleges.length}</div>
+        <div>Filtered colleges: {filteredColleges.length}</div>
+        <div>Search term: "{searchTerm}"</div>
+        <div>Active filter: {activeFilter}</div>
+      </div>
 
       {/* College Details Modal */}
       <Modal

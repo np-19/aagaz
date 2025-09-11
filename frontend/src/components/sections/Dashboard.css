@@ -28,10 +28,84 @@
     z-index: 2;
 }
 
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.user-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.avatar-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-details {
+    flex: 1;
+}
+
+.profile-snapshot {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.snapshot-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.snapshot-item strong {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    min-width: 140px;
+}
+
+.strengths-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.strength-tag {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.career-goal {
+    color: #14ffec;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
 .welcome-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.2;
 }
 
 .welcome-subtitle {
@@ -41,10 +115,38 @@
 }
 
 .progress-section {
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
     padding: 1.5rem;
     backdrop-filter: blur(10px);
+}
+
+.progress-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.progress-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.progress-text {
+    margin: 0.5rem 0 0 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.last-activity {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    opacity: 0.8;
 }
 
 .progress-bar {
@@ -52,16 +154,33 @@
     height: 8px;
     border-radius: 4px;
     overflow: hidden;
-    margin: 1rem 0;
+    margin: 1rem 0 2rem 0;
+    position: relative;
 }
 
 .progress-fill {
     height: 100%;
-    background: white;
+    background: linear-gradient(90deg, #0d7377, #14ffec);
     border-radius: 4px;
-    width: 0%;
-    transition: width 2s ease;
-    animation: progressFill 2s ease forwards;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    margin: 1rem 0 0 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+    display: block;
+    line-height: 1.4;
+}
+
+.error-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 8px;
+    color: #dc2626;
+    font-size: 0.9rem;
 }
 
 .stats-grid {
@@ -71,16 +190,51 @@
     margin-bottom: 3rem;
 }
 
+.stat-icon {
+    background: linear-gradient(135deg, #0d7377, #14ffec);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.stat-content {
+    text-align: center;
+}
+
 .stat-number {
     font-size: 2rem;
     font-weight: 700;
-    color: #0D7377;
+    color: #212121;
     margin-bottom: 0.5rem;
 }
 
 .stat-label {
-    color: #323232;
     font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.dashboard-sections {
+    margin-top: 2rem;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.section-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #212121;
 }
 
 .quick-actions {
@@ -88,6 +242,26 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     margin-bottom: 3rem;
+}
+
+.recent-activity {
+    margin-top: 3rem;
+}
+
+.activity-content h4 {
+    margin: 0 0 0.5rem 0;
+    color: #0D7377;
+    font-weight: 600;
+}
+
+.activity-content p {
+    margin: 0.5rem 0;
+    color: #323232;
+}
+
+.activity-date {
+    font-size: 0.85rem;
+    opacity: 0.7;
 }
 
 .action-icon {
@@ -119,6 +293,16 @@
     font-size: 0.9rem;
 }
 
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@keyframes progressFill {
+    0% { width: 0%; }
+    100% { width: var(--progress-width, 68%); }
+}
+
 @media (max-width: 768px) {
     .welcome-banner {
         padding: 2rem;
@@ -126,7 +310,33 @@
     .welcome-title {
         font-size: 1.8rem;
     }
+    .user-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    .user-avatar {
+        width: 60px;
+        height: 60px;
+    }
+    .profile-snapshot {
+        text-align: left;
+    }
+    .snapshot-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+    }
+    .snapshot-item strong {
+        min-width: auto;
+    }
+    .strengths-tags {
+        justify-content: flex-start;
+    }
     .quick-actions, .stats-grid {
         grid-template-columns: 1fr;
+    }
+    .section-header h2 {
+        font-size: 1.3rem;
     }
 }

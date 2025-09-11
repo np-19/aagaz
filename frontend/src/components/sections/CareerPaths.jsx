@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { GraduationCap, Code, BarChart3, Users, Crown, ArrowRight, Star, TrendingUp, Award, Target, Search, Filter } from 'lucide-react';
+import { GraduationCap, Code, BarChart3, Users, Crown, ArrowRight, Star, TrendingUp, Award, Target, Search, Filter, ArrowLeft } from 'lucide-react';
 import Card from '../ui/Card';
 import Modal from '../ui/Modal';
 import Button from '../ui/Button';
@@ -15,6 +15,9 @@ const CareerPaths = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCluster, setSelectedCluster] = useState('');
   const [filteredCareers, setFilteredCareers] = useState([]);
+  const [filteredClusters, setFilteredClusters] = useState([]);
+  const [viewMode, setViewMode] = useState('clusters'); // 'clusters' or 'careers'
+  const [selectedClusterData, setSelectedClusterData] = useState(null);
 
   useEffect(() => {
     loadCareerData();
@@ -23,6 +26,19 @@ const CareerPaths = () => {
   useEffect(() => {
     filterCareers();
   }, [careers, searchQuery, selectedCluster]);
+
+  useEffect(() => {
+    filterClusters();
+  }, [clusters, searchQuery]);
+
+  // Initialize filtered arrays when data loads
+  useEffect(() => {
+    setFilteredClusters(clusters);
+  }, [clusters]);
+
+  useEffect(() => {
+    setFilteredCareers(careers);
+  }, [careers]);
 
   const loadCareerData = async () => {
     try {
@@ -87,6 +103,8 @@ const CareerPaths = () => {
     if (searchQuery) {
       filtered = filtered.filter(career => 
         career.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        career.cluster?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        career.group?.toLowerCase().includes(searchQuery.toLowerCase()) ||
         career.skills_required?.some(skill => 
           skill.toLowerCase().includes(searchQuery.toLowerCase())
         )
@@ -100,6 +118,21 @@ const CareerPaths = () => {
     }
     
     setFilteredCareers(filtered);
+  };
+
+  const filterClusters = () => {
+    let filtered = [...clusters];
+    
+    if (searchQuery) {
+      filtered = filtered.filter(cluster => 
+        cluster.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        cluster.groups?.some(group => 
+          group.name?.toLowerCase().includes(searchQuery.toLowerCase())
+        )
+      );
+    }
+    
+    setFilteredClusters(filtered);
   };
 
   const handleCareerClick = async (career) => {
@@ -129,6 +162,60 @@ const CareerPaths = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleClusterSelect = async (cluster) => {
+    try {
+      setLoading(true);
+      setSelectedClusterData(cluster);
+      const response = await careerAPI.getByCluster(cluster.name);
+      setCareers(response.data.careers || []);
+      setViewMode('careers');
+    } catch (error) {
+      console.error('Error loading careers for cluster:', error);
+      // Use mock data for the selected cluster
+      const mockCareers = [
+        {
+          title: "Software Engineer",
+          code: "2512.0100",
+          cluster: cluster.name,
+          group: "Computer & IT",
+          skills_required: ["Java/Python/C++", "Data Structures & Algorithms", "Agile Methodologies"],
+          education_path: ["B.Tech in Computer Science", "BCA/MCA"],
+          exams_required: ["GATE (for PSUs/M.Tech)", "NIC Scientist 'B' Exam"],
+          jk_colleges: ["NIT Srinagar", "University of Jammu", "IIT Jammu"],
+          top_colleges: ["IITs", "NITs", "IIITs", "BITS Pilani"],
+          values: ["Innovation", "Logical thinking", "Continuous learning"],
+          local_opportunities: ["IT Parks in Jammu/Srinagar", "Startup ecosystem"],
+          govt_jobs: ["PSUs (PGCIL, BHEL, NTPC)", "National Informatics Centre (NIC)"]
+        },
+        {
+          title: "Data Scientist",
+          code: "2511.xxxx",
+          cluster: cluster.name,
+          group: "AI & Data Science",
+          skills_required: ["Python (Pandas, NumPy)", "Machine Learning", "SQL", "Statistical Analysis"],
+          education_path: ["Master's in Data Science", "B.Tech in Computer Science"],
+          exams_required: ["GATE (for M.Tech admissions)", "Specific PSU recruitment exams"],
+          jk_colleges: ["IIT Jammu", "NIT Srinagar", "SMVDU Katra"],
+          top_colleges: ["IISc Bangalore", "IIT Bombay", "IIT Madras"],
+          values: ["Data-driven decision making", "Predictive modeling", "Problem-solving"],
+          local_opportunities: ["Tech startups in Jammu/Srinagar", "Government data analysis projects"],
+          govt_jobs: ["National Informatics Centre (NIC)", "DRDO", "ISRO"]
+        }
+      ];
+      setCareers(mockCareers);
+      setViewMode('careers');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleBackToClusters = () => {
+    setViewMode('clusters');
+    setSelectedClusterData(null);
+    setCareers([]);
+    setSearchQuery('');
   };
 
   const getCareerIcon = (cluster) => {
@@ -182,86 +269,101 @@ const CareerPaths = () => {
         <p className="section-subtitle">Discover diverse career opportunities across different fields</p>
       </div>
 
-      {/* Search and Filter Controls */}
-      <div className="search-controls">
-        <div className="search-box">
-          <Search size={20} />
-          <input
-            type="text"
-            placeholder="Search careers or skills..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="search-input"
-          />
-        </div>
-        
-        <div className="filter-controls">
-          <Filter size={20} />
-          <select
-            value={selectedCluster}
-            onChange={(e) => {
-              setSelectedCluster(e.target.value);
-              handleClusterChange(e.target.value);
-            }}
-            className="cluster-select"
-          >
-            <option value="">All Clusters</option>
-            {clusters.map((cluster, index) => (
-              <option key={index} value={cluster.name}>
-                {cluster.name} ({cluster.groups.reduce((acc, group) => acc + group.occupationCount, 0)})
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
-
-      {/* Career Clusters Overview */}
-      <div className="clusters-overview">
-        <h2>Career Clusters</h2>
-        <div className="clusters-grid">
-          {clusters.map((cluster, index) => {
-            const totalCareers = cluster.groups.reduce((acc, group) => acc + group.occupationCount, 0);
-            return (
-              <Card 
-                key={index} 
-                className={`cluster-card ${selectedCluster === cluster.name ? 'selected' : ''}`}
-                onClick={() => {
-                  setSelectedCluster(cluster.name);
-                  handleClusterChange(cluster.name);
-                }}
-                hover
-              >
-                <div className="cluster-header">
-                  <h3>{cluster.name}</h3>
-                  <span className="career-count">{totalCareers} careers</span>
-                </div>
-                <div className="cluster-groups">
-                  {cluster.groups.map((group, groupIndex) => (
-                    <span key={groupIndex} className="group-tag">
-                      {group.name} ({group.occupationCount})
-                    </span>
-                  ))}
-                </div>
-              </Card>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Career List */}
-      <div className="careers-section">
-        <h2>
-          {selectedCluster ? `${selectedCluster} Careers` : 'All Careers'} 
-          ({filteredCareers.length})
-        </h2>
-        
-        {loading ? (
-          <div className="loading-spinner">
-            <div className="spinner"></div>
+      {viewMode === 'clusters' ? (
+        <>
+          {/* Search and Filter Controls */}
+          <div className="search-controls">
+            <div className="search-box">
+              <Search size={20} />
+              <input
+                type="text"
+                placeholder="Search clusters..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="search-input"
+              />
+            </div>
           </div>
-        ) : (
-          <div className="careers-grid">
-            {filteredCareers.map((career, index) => {
+
+          {/* Career Clusters Overview */}
+          <div className="clusters-overview">
+            <h2>Career Clusters</h2>
+            <div className="clusters-grid">
+              {filteredClusters.map((cluster, index) => {
+                const totalCareers = cluster.groups?.reduce((acc, group) => acc + (group.occupationCount || 0), 0) || 0;
+                return (
+                  <Card 
+                    key={index} 
+                    className="cluster-card"
+                    onClick={() => handleClusterSelect(cluster)}
+                    hover
+                  >
+                    <div className="cluster-header">
+                      <h3>{cluster.name}</h3>
+                      <span className="career-count">{totalCareers} careers</span>
+                    </div>
+                    <div className="cluster-groups">
+                      {cluster.groups?.map((group, groupIndex) => (
+                        <span key={groupIndex} className="group-tag">
+                          {group.name} ({group.occupationCount || 0})
+                        </span>
+                      ))}
+                    </div>
+                  </Card>
+                );
+              })}
+            </div>
+          </div>
+        </>
+      ) : (
+        <>
+          {/* Back Button and Cluster Careers View */}
+          <div className="cluster-careers-view">
+            <div className="cluster-careers-header">
+              <button 
+                className="back-button"
+                onClick={handleBackToClusters}
+              >
+                <ArrowLeft size={20} />
+                Back to Clusters
+              </button>
+              <div className="cluster-info">
+                <h2>{selectedClusterData?.name} Careers</h2>
+                <p>Explore career opportunities in {selectedClusterData?.name}</p>
+              </div>
+            </div>
+
+            {/* Search Controls for Careers */}
+            <div className="search-controls">
+              <div className="search-box">
+                <Search size={20} />
+                <input
+                  type="text"
+                  placeholder="Search careers or skills..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="search-input"
+                />
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+
+      {/* Career List - Only show when in careers view mode */}
+      {viewMode === 'careers' && (
+        <div className="careers-section">
+          <h2>
+            {selectedClusterData?.name} Careers ({filteredCareers.length})
+          </h2>
+          
+          {loading ? (
+            <div className="loading-spinner">
+              <div className="spinner"></div>
+            </div>
+          ) : filteredCareers.length > 0 ? (
+            <div className="careers-grid">
+              {filteredCareers.map((career, index) => {
               const IconComponent = getCareerIcon(career.cluster);
               const color = getCareerColor(career.cluster);
               
@@ -323,17 +425,25 @@ const CareerPaths = () => {
                 </Card>
               );
             })}
-          </div>
-        )}
-        
-        {filteredCareers.length === 0 && !loading && (
-          <div className="no-results">
-            <Target size={48} />
-            <h3>No careers found</h3>
-            <p>Try adjusting your search or filter criteria</p>
-          </div>
-        )}
-      </div>
+            </div>
+          ) : (
+            <div className="no-results">
+              <Target size={48} />
+              <h3>No careers found</h3>
+              <p>Try adjusting your search criteria</p>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* No clusters found message */}
+      {filteredClusters.length === 0 && !loading && viewMode === 'clusters' && searchQuery && (
+        <div className="no-results">
+          <Target size={48} />
+          <h3>No clusters found</h3>
+          <p>Try adjusting your search criteria</p>
+        </div>
+      )}
 
       {/* Career Details Modal */}
       <Modal
@@ -346,7 +456,6 @@ const CareerPaths = () => {
             <div className="career-overview">
               <h2>{selectedCareer.title}</h2>
               <div className="career-meta">
-                <span className="career-code">Code: {selectedCareer.code}</span>
                 <span className="career-cluster">{selectedCareer.cluster}</span>
                 <span className="career-group">{selectedCareer.group}</span>
               </div>

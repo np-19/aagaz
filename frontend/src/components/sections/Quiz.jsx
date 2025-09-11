@@ -30,7 +30,7 @@ const Quiz = () => {
       console.log('Loading quiz for grade:', grade);
       
       // Test direct fetch first
-      const directResponse = await fetch(`http://localhost:5000/api/quiz/${grade}`);
+      const directResponse = await fetch(`http://localhost:5001/api/quiz/${grade}`);
       const directData = await directResponse.json();
       console.log('Direct fetch result:', directData);
       
@@ -123,6 +123,15 @@ const Quiz = () => {
             recommendations: response.data.recommendations,
             timestamp: new Date().toISOString()
           });
+          
+          // Dispatch custom event to notify dashboard to refresh
+          window.dispatchEvent(new CustomEvent('quizCompleted', {
+            detail: {
+              userId: user.id,
+              grade,
+              timestamp: new Date().toISOString()
+            }
+          }));
         } catch (error) {
           console.error('Error saving quiz results:', error);
         }
@@ -312,7 +321,7 @@ const Quiz = () => {
           <Button 
             onClick={async () => {
               try {
-                const response = await fetch('http://localhost:5000/api/quiz/12thq');
+                const response = await fetch('http://localhost:5001/api/quiz/12thq');
                 const data = await response.json();
                 console.log('Direct API test:', data);
                 alert(`API Test: ${data.success ? 'Success' : 'Failed'} - ${data.data?.questions?.length || 0} questions`);

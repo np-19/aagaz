@@ -1,15 +1,17 @@
 const express = require('express');
 const cors = require('cors');
-const mongoose = require('mongoose');
+const connectDB = require('./config/database');
 require('dotenv').config({ path: './config.env' });
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 // Middleware
 app.use(cors({
   origin: [
     'http://localhost:5173',
+    'http://localhost:5174',
+    'http://localhost:5175',
     'http://localhost:5177',
     'http://localhost:3000'
   ],
@@ -48,20 +50,13 @@ app.use((req, res) => {
   });
 });
 
-// Start server without MongoDB for now
+// Connect to MongoDB
+connectDB();
+
+// Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-  console.log(`Environment: ${process.env.NODE_ENV}`);
-  console.log('Note: MongoDB connection disabled for demo');
+  console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
 });
-
-// Database connection (commented out for demo)
-// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/aagaz')
-//   .then(() => {
-//     console.log('Connected to MongoDB');
-//   })
-//   .catch((error) => {
-//     console.error('MongoDB connection error:', error);
-//   });
 
 module.exports = app;

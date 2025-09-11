@@ -1,48 +1,302 @@
 .resources-section {
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #212121;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #0d7377, #14ffec);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 0;
+}
+
+.search-container {
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+}
+
+.search-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    color: #666;
+    z-index: 1;
+}
+
+.search-input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    border: 2px solid rgba(13, 115, 119, 0.2);
+    border-radius: 50px;
+    font-size: 1rem;
+    background: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #0d7377;
+    box-shadow: 0 4px 20px rgba(13, 115, 119, 0.2);
+    transform: translateY(-2px);
+}
+
+.filter-chips {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.filter-chip {
+    padding: 0.8rem 1.5rem;
+    border: 2px solid rgba(13, 115, 119, 0.2);
+    border-radius: 25px;
+    background: white;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    user-select: none;
+}
+
+.filter-chip:hover {
+    border-color: #14ffec;
+    background: rgba(20, 255, 236, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(20, 255, 236, 0.3);
+}
+
+.filter-chip.active {
+    background: linear-gradient(135deg, #0d7377, #14ffec);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 4px 15px rgba(13, 115, 119, 0.3);
 }
 
 .resource-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
 .resource-type {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
-    font-size: 0.7rem;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .resource-icon {
     text-align: center;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(13, 115, 119, 0.05);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem auto;
+    transition: all 0.3s ease;
+}
+
+.resource-grid .card:hover .resource-icon {
+    transform: scale(1.1);
+    background: rgba(13, 115, 119, 0.1);
+}
+
+.resource-grid .card {
+    position: relative;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(13, 115, 119, 0.1);
+    border-radius: 20px;
+    background: white;
+    overflow: hidden;
+}
+
+.resource-grid .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #0d7377, #14ffec);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.resource-grid .card:hover::before {
+    transform: scaleX(1);
+}
+
+.resource-grid .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(13, 115, 119, 0.2);
+    border-color: #14ffec;
+}
+
+.resource-grid .card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #0d7377;
     margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.resource-grid .card p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
 }
 
 .resource-meta {
-    margin-top: 1rem;
-    color: #323232;
+    margin-top: 1.5rem;
+    color: #888;
     font-size: 0.9rem;
+    line-height: 1.5;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(13, 115, 119, 0.1);
 }
 
 .resource-modal-content {
     text-align: center;
+    padding: 1rem;
 }
 
 .resource-modal-icon {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.resource-modal-content h3 {
+    font-size: 1.5rem;
+    color: #0d7377;
     margin-bottom: 1rem;
+}
+
+.resource-modal-content p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
 }
 
 .resource-modal-meta {
     margin-top: 2rem;
     text-align: left;
+    background: rgba(13, 115, 119, 0.05);
+    padding: 1.5rem;
+    border-radius: 12px;
 }
 
 .resource-modal-meta p {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
+    color: #333;
+    font-weight: 500;
+}
+
+.resource-modal-meta strong {
+    color: #0d7377;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .resource-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .resources-section {
+        padding: 1.5rem 1rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    .resource-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .filter-chips {
+        gap: 0.5rem;
+    }
+    
+    .filter-chip {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .resource-grid .card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-input {
+        padding: 0.8rem 0.8rem 0.8rem 2.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .search-icon {
+        left: 0.8rem;
+    }
+    
+    .resource-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .resource-grid .card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .resource-modal-meta {
+        padding: 1rem;
+    }
 }

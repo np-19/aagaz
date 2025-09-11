@@ -5,10 +5,21 @@ const path = require('path');
 const loadQuizData = (grade) => {
   try {
     const filePath = path.join(__dirname, '../../data', `${grade}.json`);
+    console.log(`Attempting to load quiz data from: ${filePath}`);
+    
+    // Check if file exists
+    if (!fs.existsSync(filePath)) {
+      console.error(`Quiz file not found: ${filePath}`);
+      return null;
+    }
+    
     const data = fs.readFileSync(filePath, 'utf8');
-    return JSON.parse(data);
+    const parsedData = JSON.parse(data);
+    console.log(`Successfully loaded quiz data for ${grade}, questions: ${parsedData.questions?.length || 0}`);
+    return parsedData;
   } catch (error) {
     console.error(`Error loading quiz data for ${grade}:`, error);
+    console.error(`Error details:`, error.message);
     return null;
   }
 };
@@ -17,10 +28,21 @@ const loadQuizData = (grade) => {
 const loadTaxonomyData = () => {
   try {
     const filePath = path.join(__dirname, '../../data/taxonomy.json');
+    console.log(`Attempting to load taxonomy data from: ${filePath}`);
+    
+    // Check if file exists
+    if (!fs.existsSync(filePath)) {
+      console.error(`Taxonomy file not found: ${filePath}`);
+      return null;
+    }
+    
     const data = fs.readFileSync(filePath, 'utf8');
-    return JSON.parse(data);
+    const parsedData = JSON.parse(data);
+    console.log(`Successfully loaded taxonomy data, clusters: ${parsedData.clusters?.length || 0}`);
+    return parsedData;
   } catch (error) {
     console.error('Error loading taxonomy data:', error);
+    console.error(`Error details:`, error.message);
     return null;
   }
 };

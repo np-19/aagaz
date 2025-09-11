@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Menu, Bell, User, X } from 'lucide-react';
+import { useUser } from '@clerk/clerk-react';
+import ProfileDropdown from '../ui/ProfileDropdown';
 import './Navbar.css';
 
 const Navbar = ({ onToggleSidebar, onToggleNotifications, notificationCount, sidebarOpen, isMobile }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { isSignedIn } = useUser();
 
   const handleNavigation = (path) => {
     navigate(path);
@@ -73,9 +76,13 @@ const Navbar = ({ onToggleSidebar, onToggleNotifications, notificationCount, sid
           )}
         </button>
         
-        <div className="user-profile" onClick={() => handleNavigation('/settings')}>
-          <User size={20} />
-        </div>
+        {isSignedIn ? (
+          <ProfileDropdown />
+        ) : (
+          <div className="user-profile" onClick={() => handleNavigation('/settings')}>
+            <User size={20} />
+          </div>
+        )}
       </div>
     </nav>
   );

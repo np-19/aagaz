@@ -167,48 +167,37 @@ const Recommendations = () => {
         <div className="recommendations-section-content">
           <h2 className="section-subtitle">Your Top Career Matches</h2>
           <div className="career-recommendations-grid">
-            {personalizedRecs.recommendations.slice(0, 4).map((career, index) => (
+            {personalizedRecs.recommendations.slice(0, 6).map((career, index) => (
               <Card key={index} variant="action" hover className="career-card">
                 <div className="career-header">
                   <div className="career-title">
-                    <Briefcase size={20} />
+                    <Briefcase size={18} />
                     <h3>{career.title}</h3>
                   </div>
                   <div className="match-score">
-                    {career.matchPercentage || career.matchScore || 85}% Match
+                    {career.matchPercentage || career.matchScore || 85}%
                   </div>
                 </div>
                 <div className="career-details">
-                  <p><strong>Field:</strong> {career.cluster}</p>
+                  <div className="career-field">
+                    <span className="field-tag">{career.cluster}</span>
+                  </div>
                   {career.skills_required && (
                     <div className="skills-section">
-                      <strong>Key Skills:</strong>
                       <div className="skills-tags">
-                        {career.skills_required.slice(0, 3).map((skill, idx) => (
+                        {career.skills_required.slice(0, 2).map((skill, idx) => (
                           <span key={idx} className="skill-tag">{skill}</span>
                         ))}
+                        {career.skills_required.length > 2 && (
+                          <span className="skill-tag more">+{career.skills_required.length - 2}</span>
+                        )}
                       </div>
-                    </div>
-                  )}
-                  {career.education_path && (
-                    <div className="education-section">
-                      <strong>Education Path:</strong>
-                      <p>{career.education_path[0]}</p>
                     </div>
                   )}
                   {career.jk_colleges && career.jk_colleges.length > 0 && (
                     <div className="colleges-section">
-                      <strong>JK Colleges:</strong>
-                      <div className="colleges-list">
-                        {career.jk_colleges.slice(0, 2).map((college, idx) => (
-                          <span 
-                            key={idx} 
-                            className="college-link"
-                            onClick={() => handleExploreColleges(college)}
-                          >
-                            {college}
-                          </span>
-                        ))}
+                      <div className="colleges-count">
+                        📍 {career.jk_colleges.length} JK College{career.jk_colleges.length !== 1 ? 's' : ''}
                       </div>
                     </div>
                   )}
@@ -217,9 +206,9 @@ const Recommendations = () => {
                   variant="secondary" 
                   size="small"
                   onClick={() => handleExploreCareer(career.title)}
-                  style={{ marginTop: '1rem' }}
+                  className="explore-btn"
                 >
-                  Explore Career
+                  Explore
                 </Button>
               </Card>
             ))}
